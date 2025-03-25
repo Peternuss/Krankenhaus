@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="krankenhausModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="abteilung">
+          <Key>
+            <PropertyRef Name="PK_Abteilung" />
+          </Key>
+          <Property Name="PK_Abteilung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="50" />
+          <Property Name="Kürzel" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Während der Generierung sind Fehler aufgetreten:
+Warnung 6013: Für Tabelle/Sicht 'def.krankenhaus.arbeitet' ist kein Primärschlüssel definiert, und es konnte kein gültiger Primärschlüssel abgeleitet werden. Diese Tabelle/Sicht wurde ausgeschlossen. Wenn Sie die Entität verwenden möchten, müssen Sie das Schema überprüfen, die richtigen Schlüssel hinzufügen und die Auskommentierung aufheben.
+        <EntityType Name="arbeitet">
+          <Property Name="Eintrittsdatum" Type="date" />
+          <Property Name="Austrittsdatum" Type="date" />
+          <Property Name="FK_Mitarbeiter" Type="int" />
+          <Property Name="FK_Abteilung" Type="int" />
+        </EntityType>-->
+        <EntityType Name="beruf">
+          <Key>
+            <PropertyRef Name="PK_Beruf" />
+          </Key>
+          <Property Name="PK_Beruf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Berufsbezeichnung" Type="varchar" MaxLength="50" />
+          <Property Name="Kürzel" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="diagnose">
+          <Key>
+            <PropertyRef Name="PK_Diagnose" />
+          </Key>
+          <Property Name="PK_Diagnose" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Diagnosezeitpunkt" Type="datetime" Precision="0" />
+          <Property Name="Diagnosestatus" Type="varchar" MaxLength="50" />
+          <Property Name="FK_Krankheit" Type="int" />
+          <Property Name="FK_Patient" Type="int" />
+        </EntityType>
+        <EntityType Name="gebaeude">
+          <Key>
+            <PropertyRef Name="PK_Gebaeude" />
+          </Key>
+          <Property Name="PK_Gebaeude" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gebaeude_Nummer" Type="int" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="20" />
+          <Property Name="Krankheit" Type="varchar" MaxLength="50" />
+          <Property Name="FK_Ort" Type="int" />
+        </EntityType>
+        <EntityType Name="gehalt">
+          <Key>
+            <PropertyRef Name="PK_Gehalt" />
+          </Key>
+          <Property Name="PK_Gehalt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gehaltsklasse" Type="int" />
+          <Property Name="Betrag" Type="int" />
+        </EntityType>
+        <EntityType Name="krankenkassenkarte">
+          <Key>
+            <PropertyRef Name="PK_Krankenkassenkarte" />
+          </Key>
+          <Property Name="PK_Krankenkassenkarte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Versichertennummer" Type="int" />
+          <Property Name="Versicherungsart" Type="int" />
+          <Property Name="Ablaufdatum" Type="date" />
+        </EntityType>
+        <EntityType Name="krankheit">
+          <Key>
+            <PropertyRef Name="PK_Krankheit" />
+          </Key>
+          <Property Name="PK_Krankheit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="50" />
+          <Property Name="Krankheitsgruppe" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mitarbeiter">
+          <Key>
+            <PropertyRef Name="PK_Mitarbeiter" />
+          </Key>
+          <Property Name="PK_Mitarbeiter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vorname" Type="varchar" MaxLength="50" />
+          <Property Name="Nachname" Type="varchar" MaxLength="50" />
+          <Property Name="Geburtsdatum" Type="date" />
+          <Property Name="E_Mail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Passwort" Type="varchar" MaxLength="60" />
+          <Property Name="Telefonnummer" Type="bigint" />
+          <Property Name="Straße" Type="varchar" MaxLength="50" />
+          <Property Name="Hausnummer" Type="int" />
+          <Property Name="FK_Beruf" Type="int" />
+          <Property Name="FK_Gehalt" Type="int" />
+          <Property Name="FK_Ort" Type="int" />
+        </EntityType>
+        <EntityType Name="ort">
+          <Key>
+            <PropertyRef Name="PK_Ort" />
+          </Key>
+          <Property Name="PK_Ort" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLZ" Type="int" />
+          <Property Name="Stadt" Type="varchar" MaxLength="20" />
+          <Property Name="Land" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="PK_Patient" />
+          </Key>
+          <Property Name="PK_Patient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vorname" Type="varchar" MaxLength="50" />
+          <Property Name="Nachname" Type="varchar" MaxLength="50" />
+          <Property Name="FK_Krankheit" Type="int" />
+          <Property Name="FK_Krankenkasse" Type="int" />
+        </EntityType>
+        <EntityType Name="raum">
+          <Key>
+            <PropertyRef Name="PK_Raum" />
+          </Key>
+          <Property Name="PK_Raum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Raumnummer" Type="int" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="50" />
+          <Property Name="FK_Gebäude" Type="int" />
+          <Property Name="FK_Abteilung" Type="int" />
+        </EntityType>
+        <EntityType Name="schichtplan">
+          <Key>
+            <PropertyRef Name="PK_Schichtplan" />
+          </Key>
+          <Property Name="PK_Schichtplan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Schichtbeginn" Type="time" Precision="0" />
+          <Property Name="Schichtende" Type="time" Precision="0" />
+          <Property Name="FK_Schichttyp" Type="int" />
+          <Property Name="FK_Mitarbeiter" Type="int" />
+        </EntityType>
+        <EntityType Name="schichttyp">
+          <Key>
+            <PropertyRef Name="PK_Schichttyp" />
+          </Key>
+          <Property Name="PK_Schichttyp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Schichtbezeichnung" Type="varchar" MaxLength="20" />
+          <Property Name="Kürzel" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="termin">
+          <Key>
+            <PropertyRef Name="PK_Termin" />
+          </Key>
+          <Property Name="PK_Termin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Termin_Start" Type="date" />
+          <Property Name="Termin_Ende" Type="date" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="20" />
+          <Property Name="FK_Raum" Type="int" />
+          <Property Name="FK_Patient" Type="int" />
+        </EntityType>
+        <!--Während der Generierung sind Fehler aufgetreten:
+Fehler 6004: Auf die Tabelle 'def.krankenhaus.arbeitet' wurde durch eine Beziehung verwiesen, die jedoch nicht gefunden wurde.
+        <Association Name="arbeitet_ibfk_1" />-->
+        <!--Während der Generierung sind Fehler aufgetreten:
+Fehler 6004: Auf die Tabelle 'def.krankenhaus.arbeitet' wurde durch eine Beziehung verwiesen, die jedoch nicht gefunden wurde.
+        <Association Name="arbeitet_ibfk_2" />-->
+        <Association Name="diagnose_ibfk_1">
+          <End Role="krankheit" Type="Self.krankheit" Multiplicity="0..1" />
+          <End Role="diagnose" Type="Self.diagnose" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="krankheit">
+              <PropertyRef Name="PK_Krankheit" />
+            </Principal>
+            <Dependent Role="diagnose">
+              <PropertyRef Name="FK_Krankheit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnose_ibfk_2">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="diagnose" Type="Self.diagnose" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="PK_Patient" />
+            </Principal>
+            <Dependent Role="diagnose">
+              <PropertyRef Name="FK_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gebaeude_ibfk_1">
+          <End Role="ort" Type="Self.ort" Multiplicity="0..1" />
+          <End Role="gebaeude" Type="Self.gebaeude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ort">
+              <PropertyRef Name="PK_Ort" />
+            </Principal>
+            <Dependent Role="gebaeude">
+              <PropertyRef Name="FK_Ort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mitarbeiter_ibfk_1">
+          <End Role="beruf" Type="Self.beruf" Multiplicity="0..1" />
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="beruf">
+              <PropertyRef Name="PK_Beruf" />
+            </Principal>
+            <Dependent Role="mitarbeiter">
+              <PropertyRef Name="FK_Beruf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mitarbeiter_ibfk_3">
+          <End Role="gehalt" Type="Self.gehalt" Multiplicity="0..1" />
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gehalt">
+              <PropertyRef Name="PK_Gehalt" />
+            </Principal>
+            <Dependent Role="mitarbeiter">
+              <PropertyRef Name="FK_Gehalt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mitarbeiter_ibfk_4">
+          <End Role="ort" Type="Self.ort" Multiplicity="0..1" />
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ort">
+              <PropertyRef Name="PK_Ort" />
+            </Principal>
+            <Dependent Role="mitarbeiter">
+              <PropertyRef Name="FK_Ort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="patient_ibfk_1">
+          <End Role="krankheit" Type="Self.krankheit" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="krankheit">
+              <PropertyRef Name="PK_Krankheit" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="FK_Krankheit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="patient_ibfk_2">
+          <End Role="krankenkassenkarte" Type="Self.krankenkassenkarte" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="krankenkassenkarte">
+              <PropertyRef Name="PK_Krankenkassenkarte" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="FK_Krankenkasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="raum_ibfk_1">
+          <End Role="gebaeude" Type="Self.gebaeude" Multiplicity="0..1" />
+          <End Role="raum" Type="Self.raum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gebaeude">
+              <PropertyRef Name="PK_Gebaeude" />
+            </Principal>
+            <Dependent Role="raum">
+              <PropertyRef Name="FK_Gebäude" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="raum_ibfk_2">
+          <End Role="abteilung" Type="Self.abteilung" Multiplicity="0..1" />
+          <End Role="raum" Type="Self.raum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="abteilung">
+              <PropertyRef Name="PK_Abteilung" />
+            </Principal>
+            <Dependent Role="raum">
+              <PropertyRef Name="FK_Abteilung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="schichtplan_ibfk_1">
+          <End Role="schichttyp" Type="Self.schichttyp" Multiplicity="0..1" />
+          <End Role="schichtplan" Type="Self.schichtplan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="schichttyp">
+              <PropertyRef Name="PK_Schichttyp" />
+            </Principal>
+            <Dependent Role="schichtplan">
+              <PropertyRef Name="FK_Schichttyp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="schichtplan_ibfk_2">
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="0..1" />
+          <End Role="schichtplan" Type="Self.schichtplan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mitarbeiter">
+              <PropertyRef Name="PK_Mitarbeiter" />
+            </Principal>
+            <Dependent Role="schichtplan">
+              <PropertyRef Name="FK_Mitarbeiter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="termin_ibfk_1">
+          <End Role="raum" Type="Self.raum" Multiplicity="0..1" />
+          <End Role="termin" Type="Self.termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="raum">
+              <PropertyRef Name="PK_Raum" />
+            </Principal>
+            <Dependent Role="termin">
+              <PropertyRef Name="FK_Raum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="termin_ibfk_2">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="termin" Type="Self.termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="PK_Patient" />
+            </Principal>
+            <Dependent Role="termin">
+              <PropertyRef Name="FK_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="krankenhausModelStoreContainer">
+          <EntitySet Name="abteilung" EntityType="Self.abteilung" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="beruf" EntityType="Self.beruf" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="diagnose" EntityType="Self.diagnose" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="gebaeude" EntityType="Self.gebaeude" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="gehalt" EntityType="Self.gehalt" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="krankenkassenkarte" EntityType="Self.krankenkassenkarte" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="krankheit" EntityType="Self.krankheit" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="mitarbeiter" EntityType="Self.mitarbeiter" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="ort" EntityType="Self.ort" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="patient" EntityType="Self.patient" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="raum" EntityType="Self.raum" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="schichtplan" EntityType="Self.schichtplan" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="schichttyp" EntityType="Self.schichttyp" Schema="krankenhaus" store:Type="Tables" />
+          <EntitySet Name="termin" EntityType="Self.termin" Schema="krankenhaus" store:Type="Tables" />
+          <AssociationSet Name="diagnose_ibfk_1" Association="Self.diagnose_ibfk_1">
+            <End Role="krankheit" EntitySet="krankheit" />
+            <End Role="diagnose" EntitySet="diagnose" />
+          </AssociationSet>
+          <AssociationSet Name="diagnose_ibfk_2" Association="Self.diagnose_ibfk_2">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="diagnose" EntitySet="diagnose" />
+          </AssociationSet>
+          <AssociationSet Name="gebaeude_ibfk_1" Association="Self.gebaeude_ibfk_1">
+            <End Role="ort" EntitySet="ort" />
+            <End Role="gebaeude" EntitySet="gebaeude" />
+          </AssociationSet>
+          <AssociationSet Name="mitarbeiter_ibfk_1" Association="Self.mitarbeiter_ibfk_1">
+            <End Role="beruf" EntitySet="beruf" />
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="mitarbeiter_ibfk_3" Association="Self.mitarbeiter_ibfk_3">
+            <End Role="gehalt" EntitySet="gehalt" />
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="mitarbeiter_ibfk_4" Association="Self.mitarbeiter_ibfk_4">
+            <End Role="ort" EntitySet="ort" />
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="patient_ibfk_1" Association="Self.patient_ibfk_1">
+            <End Role="krankheit" EntitySet="krankheit" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="patient_ibfk_2" Association="Self.patient_ibfk_2">
+            <End Role="krankenkassenkarte" EntitySet="krankenkassenkarte" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="raum_ibfk_1" Association="Self.raum_ibfk_1">
+            <End Role="gebaeude" EntitySet="gebaeude" />
+            <End Role="raum" EntitySet="raum" />
+          </AssociationSet>
+          <AssociationSet Name="raum_ibfk_2" Association="Self.raum_ibfk_2">
+            <End Role="abteilung" EntitySet="abteilung" />
+            <End Role="raum" EntitySet="raum" />
+          </AssociationSet>
+          <AssociationSet Name="schichtplan_ibfk_1" Association="Self.schichtplan_ibfk_1">
+            <End Role="schichttyp" EntitySet="schichttyp" />
+            <End Role="schichtplan" EntitySet="schichtplan" />
+          </AssociationSet>
+          <AssociationSet Name="schichtplan_ibfk_2" Association="Self.schichtplan_ibfk_2">
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+            <End Role="schichtplan" EntitySet="schichtplan" />
+          </AssociationSet>
+          <AssociationSet Name="termin_ibfk_1" Association="Self.termin_ibfk_1">
+            <End Role="raum" EntitySet="raum" />
+            <End Role="termin" EntitySet="termin" />
+          </AssociationSet>
+          <AssociationSet Name="termin_ibfk_2" Association="Self.termin_ibfk_2">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="termin" EntitySet="termin" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="krankenhausModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="abteilung">
+          <Key>
+            <PropertyRef Name="PK_Abteilung" />
+          </Key>
+          <Property Name="PK_Abteilung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kürzel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="raum" Relationship="Self.raum_ibfk_2" FromRole="abteilung" ToRole="raum" />
+        </EntityType>
+        <EntityType Name="beruf">
+          <Key>
+            <PropertyRef Name="PK_Beruf" />
+          </Key>
+          <Property Name="PK_Beruf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Berufsbezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kürzel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mitarbeiter" Relationship="Self.mitarbeiter_ibfk_1" FromRole="beruf" ToRole="mitarbeiter" />
+        </EntityType>
+        <EntityType Name="diagnose">
+          <Key>
+            <PropertyRef Name="PK_Diagnose" />
+          </Key>
+          <Property Name="PK_Diagnose" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diagnosezeitpunkt" Type="DateTime" />
+          <Property Name="Diagnosestatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Krankheit" Type="Int32" />
+          <Property Name="FK_Patient" Type="Int32" />
+          <NavigationProperty Name="krankheit" Relationship="Self.diagnose_ibfk_1" FromRole="diagnose" ToRole="krankheit" />
+          <NavigationProperty Name="patient" Relationship="Self.diagnose_ibfk_2" FromRole="diagnose" ToRole="patient" />
+        </EntityType>
+        <EntityType Name="gebaeude">
+          <Key>
+            <PropertyRef Name="PK_Gebaeude" />
+          </Key>
+          <Property Name="PK_Gebaeude" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gebaeude_Nummer" Type="Int32" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Krankheit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Ort" Type="Int32" />
+          <NavigationProperty Name="ort" Relationship="Self.gebaeude_ibfk_1" FromRole="gebaeude" ToRole="ort" />
+          <NavigationProperty Name="raum" Relationship="Self.raum_ibfk_1" FromRole="gebaeude" ToRole="raum" />
+        </EntityType>
+        <EntityType Name="gehalt">
+          <Key>
+            <PropertyRef Name="PK_Gehalt" />
+          </Key>
+          <Property Name="PK_Gehalt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gehaltsklasse" Type="Int32" />
+          <Property Name="Betrag" Type="Int32" />
+          <NavigationProperty Name="mitarbeiter" Relationship="Self.mitarbeiter_ibfk_3" FromRole="gehalt" ToRole="mitarbeiter" />
+        </EntityType>
+        <EntityType Name="krankenkassenkarte">
+          <Key>
+            <PropertyRef Name="PK_Krankenkassenkarte" />
+          </Key>
+          <Property Name="PK_Krankenkassenkarte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Versichertennummer" Type="Int32" />
+          <Property Name="Versicherungsart" Type="Int32" />
+          <Property Name="Ablaufdatum" Type="DateTime" />
+          <NavigationProperty Name="patient" Relationship="Self.patient_ibfk_2" FromRole="krankenkassenkarte" ToRole="patient" />
+        </EntityType>
+        <EntityType Name="krankheit">
+          <Key>
+            <PropertyRef Name="PK_Krankheit" />
+          </Key>
+          <Property Name="PK_Krankheit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Krankheitsgruppe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="diagnose" Relationship="Self.diagnose_ibfk_1" FromRole="krankheit" ToRole="diagnose" />
+          <NavigationProperty Name="patient" Relationship="Self.patient_ibfk_1" FromRole="krankheit" ToRole="patient" />
+        </EntityType>
+        <EntityType Name="mitarbeiter">
+          <Key>
+            <PropertyRef Name="PK_Mitarbeiter" />
+          </Key>
+          <Property Name="PK_Mitarbeiter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nachname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Geburtsdatum" Type="DateTime" />
+          <Property Name="E_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Passwort" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Telefonnummer" Type="Int64" />
+          <Property Name="Straße" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hausnummer" Type="Int32" />
+          <Property Name="FK_Beruf" Type="Int32" />
+          <Property Name="FK_Gehalt" Type="Int32" />
+          <Property Name="FK_Ort" Type="Int32" />
+          <NavigationProperty Name="beruf" Relationship="Self.mitarbeiter_ibfk_1" FromRole="mitarbeiter" ToRole="beruf" />
+          <NavigationProperty Name="gehalt" Relationship="Self.mitarbeiter_ibfk_3" FromRole="mitarbeiter" ToRole="gehalt" />
+          <NavigationProperty Name="ort" Relationship="Self.mitarbeiter_ibfk_4" FromRole="mitarbeiter" ToRole="ort" />
+          <NavigationProperty Name="schichtplan" Relationship="Self.schichtplan_ibfk_2" FromRole="mitarbeiter" ToRole="schichtplan" />
+        </EntityType>
+        <EntityType Name="ort">
+          <Key>
+            <PropertyRef Name="PK_Ort" />
+          </Key>
+          <Property Name="PK_Ort" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLZ" Type="Int32" />
+          <Property Name="Stadt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Land" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="gebaeude" Relationship="Self.gebaeude_ibfk_1" FromRole="ort" ToRole="gebaeude" />
+          <NavigationProperty Name="mitarbeiter" Relationship="Self.mitarbeiter_ibfk_4" FromRole="ort" ToRole="mitarbeiter" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="PK_Patient" />
+          </Key>
+          <Property Name="PK_Patient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nachname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Krankheit" Type="Int32" />
+          <Property Name="FK_Krankenkasse" Type="Int32" />
+          <NavigationProperty Name="diagnose" Relationship="Self.diagnose_ibfk_2" FromRole="patient" ToRole="diagnose" />
+          <NavigationProperty Name="krankenkassenkarte" Relationship="Self.patient_ibfk_2" FromRole="patient" ToRole="krankenkassenkarte" />
+          <NavigationProperty Name="krankheit" Relationship="Self.patient_ibfk_1" FromRole="patient" ToRole="krankheit" />
+          <NavigationProperty Name="termin" Relationship="Self.termin_ibfk_2" FromRole="patient" ToRole="termin" />
+        </EntityType>
+        <EntityType Name="raum">
+          <Key>
+            <PropertyRef Name="PK_Raum" />
+          </Key>
+          <Property Name="PK_Raum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Raumnummer" Type="Int32" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Gebäude" Type="Int32" />
+          <Property Name="FK_Abteilung" Type="Int32" />
+          <NavigationProperty Name="abteilung" Relationship="Self.raum_ibfk_2" FromRole="raum" ToRole="abteilung" />
+          <NavigationProperty Name="gebaeude" Relationship="Self.raum_ibfk_1" FromRole="raum" ToRole="gebaeude" />
+          <NavigationProperty Name="termin" Relationship="Self.termin_ibfk_1" FromRole="raum" ToRole="termin" />
+        </EntityType>
+        <EntityType Name="schichtplan">
+          <Key>
+            <PropertyRef Name="PK_Schichtplan" />
+          </Key>
+          <Property Name="PK_Schichtplan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Schichtbeginn" Type="Time" />
+          <Property Name="Schichtende" Type="Time" />
+          <Property Name="FK_Schichttyp" Type="Int32" />
+          <Property Name="FK_Mitarbeiter" Type="Int32" />
+          <NavigationProperty Name="mitarbeiter" Relationship="Self.schichtplan_ibfk_2" FromRole="schichtplan" ToRole="mitarbeiter" />
+          <NavigationProperty Name="schichttyp" Relationship="Self.schichtplan_ibfk_1" FromRole="schichtplan" ToRole="schichttyp" />
+        </EntityType>
+        <EntityType Name="schichttyp">
+          <Key>
+            <PropertyRef Name="PK_Schichttyp" />
+          </Key>
+          <Property Name="PK_Schichttyp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Schichtbezeichnung" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Kürzel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="schichtplan" Relationship="Self.schichtplan_ibfk_1" FromRole="schichttyp" ToRole="schichtplan" />
+        </EntityType>
+        <EntityType Name="termin">
+          <Key>
+            <PropertyRef Name="PK_Termin" />
+          </Key>
+          <Property Name="PK_Termin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Termin_Start" Type="DateTime" />
+          <Property Name="Termin_Ende" Type="DateTime" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Raum" Type="Int32" />
+          <Property Name="FK_Patient" Type="Int32" />
+          <NavigationProperty Name="patient" Relationship="Self.termin_ibfk_2" FromRole="termin" ToRole="patient" />
+          <NavigationProperty Name="raum" Relationship="Self.termin_ibfk_1" FromRole="termin" ToRole="raum" />
+        </EntityType>
+        <Association Name="raum_ibfk_2">
+          <End Role="abteilung" Type="Self.abteilung" Multiplicity="0..1" />
+          <End Role="raum" Type="Self.raum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="abteilung">
+              <PropertyRef Name="PK_Abteilung" />
+            </Principal>
+            <Dependent Role="raum">
+              <PropertyRef Name="FK_Abteilung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mitarbeiter_ibfk_1">
+          <End Role="beruf" Type="Self.beruf" Multiplicity="0..1" />
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="beruf">
+              <PropertyRef Name="PK_Beruf" />
+            </Principal>
+            <Dependent Role="mitarbeiter">
+              <PropertyRef Name="FK_Beruf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnose_ibfk_1">
+          <End Role="krankheit" Type="Self.krankheit" Multiplicity="0..1" />
+          <End Role="diagnose" Type="Self.diagnose" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="krankheit">
+              <PropertyRef Name="PK_Krankheit" />
+            </Principal>
+            <Dependent Role="diagnose">
+              <PropertyRef Name="FK_Krankheit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="diagnose_ibfk_2">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="diagnose" Type="Self.diagnose" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="PK_Patient" />
+            </Principal>
+            <Dependent Role="diagnose">
+              <PropertyRef Name="FK_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gebaeude_ibfk_1">
+          <End Role="ort" Type="Self.ort" Multiplicity="0..1" />
+          <End Role="gebaeude" Type="Self.gebaeude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ort">
+              <PropertyRef Name="PK_Ort" />
+            </Principal>
+            <Dependent Role="gebaeude">
+              <PropertyRef Name="FK_Ort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="raum_ibfk_1">
+          <End Role="gebaeude" Type="Self.gebaeude" Multiplicity="0..1" />
+          <End Role="raum" Type="Self.raum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gebaeude">
+              <PropertyRef Name="PK_Gebaeude" />
+            </Principal>
+            <Dependent Role="raum">
+              <PropertyRef Name="FK_Gebäude" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mitarbeiter_ibfk_3">
+          <End Role="gehalt" Type="Self.gehalt" Multiplicity="0..1" />
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gehalt">
+              <PropertyRef Name="PK_Gehalt" />
+            </Principal>
+            <Dependent Role="mitarbeiter">
+              <PropertyRef Name="FK_Gehalt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="patient_ibfk_2">
+          <End Role="krankenkassenkarte" Type="Self.krankenkassenkarte" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="krankenkassenkarte">
+              <PropertyRef Name="PK_Krankenkassenkarte" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="FK_Krankenkasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="patient_ibfk_1">
+          <End Role="krankheit" Type="Self.krankheit" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="krankheit">
+              <PropertyRef Name="PK_Krankheit" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="FK_Krankheit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mitarbeiter_ibfk_4">
+          <End Role="ort" Type="Self.ort" Multiplicity="0..1" />
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ort">
+              <PropertyRef Name="PK_Ort" />
+            </Principal>
+            <Dependent Role="mitarbeiter">
+              <PropertyRef Name="FK_Ort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="schichtplan_ibfk_2">
+          <End Role="mitarbeiter" Type="Self.mitarbeiter" Multiplicity="0..1" />
+          <End Role="schichtplan" Type="Self.schichtplan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mitarbeiter">
+              <PropertyRef Name="PK_Mitarbeiter" />
+            </Principal>
+            <Dependent Role="schichtplan">
+              <PropertyRef Name="FK_Mitarbeiter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="termin_ibfk_2">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="termin" Type="Self.termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="PK_Patient" />
+            </Principal>
+            <Dependent Role="termin">
+              <PropertyRef Name="FK_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="termin_ibfk_1">
+          <End Role="raum" Type="Self.raum" Multiplicity="0..1" />
+          <End Role="termin" Type="Self.termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="raum">
+              <PropertyRef Name="PK_Raum" />
+            </Principal>
+            <Dependent Role="termin">
+              <PropertyRef Name="FK_Raum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="schichtplan_ibfk_1">
+          <End Role="schichttyp" Type="Self.schichttyp" Multiplicity="0..1" />
+          <End Role="schichtplan" Type="Self.schichtplan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="schichttyp">
+              <PropertyRef Name="PK_Schichttyp" />
+            </Principal>
+            <Dependent Role="schichtplan">
+              <PropertyRef Name="FK_Schichttyp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="krankenhausEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="abteilung" EntityType="Self.abteilung" />
+          <EntitySet Name="beruf" EntityType="Self.beruf" />
+          <EntitySet Name="diagnose" EntityType="Self.diagnose" />
+          <EntitySet Name="gebaeude" EntityType="Self.gebaeude" />
+          <EntitySet Name="gehalt" EntityType="Self.gehalt" />
+          <EntitySet Name="krankenkassenkarte" EntityType="Self.krankenkassenkarte" />
+          <EntitySet Name="krankheit" EntityType="Self.krankheit" />
+          <EntitySet Name="mitarbeiter" EntityType="Self.mitarbeiter" />
+          <EntitySet Name="ort" EntityType="Self.ort" />
+          <EntitySet Name="patient" EntityType="Self.patient" />
+          <EntitySet Name="raum" EntityType="Self.raum" />
+          <EntitySet Name="schichtplan" EntityType="Self.schichtplan" />
+          <EntitySet Name="schichttyp" EntityType="Self.schichttyp" />
+          <EntitySet Name="termin" EntityType="Self.termin" />
+          <AssociationSet Name="raum_ibfk_2" Association="Self.raum_ibfk_2">
+            <End Role="abteilung" EntitySet="abteilung" />
+            <End Role="raum" EntitySet="raum" />
+          </AssociationSet>
+          <AssociationSet Name="mitarbeiter_ibfk_1" Association="Self.mitarbeiter_ibfk_1">
+            <End Role="beruf" EntitySet="beruf" />
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="diagnose_ibfk_1" Association="Self.diagnose_ibfk_1">
+            <End Role="krankheit" EntitySet="krankheit" />
+            <End Role="diagnose" EntitySet="diagnose" />
+          </AssociationSet>
+          <AssociationSet Name="diagnose_ibfk_2" Association="Self.diagnose_ibfk_2">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="diagnose" EntitySet="diagnose" />
+          </AssociationSet>
+          <AssociationSet Name="gebaeude_ibfk_1" Association="Self.gebaeude_ibfk_1">
+            <End Role="ort" EntitySet="ort" />
+            <End Role="gebaeude" EntitySet="gebaeude" />
+          </AssociationSet>
+          <AssociationSet Name="raum_ibfk_1" Association="Self.raum_ibfk_1">
+            <End Role="gebaeude" EntitySet="gebaeude" />
+            <End Role="raum" EntitySet="raum" />
+          </AssociationSet>
+          <AssociationSet Name="mitarbeiter_ibfk_3" Association="Self.mitarbeiter_ibfk_3">
+            <End Role="gehalt" EntitySet="gehalt" />
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="patient_ibfk_2" Association="Self.patient_ibfk_2">
+            <End Role="krankenkassenkarte" EntitySet="krankenkassenkarte" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="patient_ibfk_1" Association="Self.patient_ibfk_1">
+            <End Role="krankheit" EntitySet="krankheit" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="mitarbeiter_ibfk_4" Association="Self.mitarbeiter_ibfk_4">
+            <End Role="ort" EntitySet="ort" />
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="schichtplan_ibfk_2" Association="Self.schichtplan_ibfk_2">
+            <End Role="mitarbeiter" EntitySet="mitarbeiter" />
+            <End Role="schichtplan" EntitySet="schichtplan" />
+          </AssociationSet>
+          <AssociationSet Name="termin_ibfk_2" Association="Self.termin_ibfk_2">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="termin" EntitySet="termin" />
+          </AssociationSet>
+          <AssociationSet Name="termin_ibfk_1" Association="Self.termin_ibfk_1">
+            <End Role="raum" EntitySet="raum" />
+            <End Role="termin" EntitySet="termin" />
+          </AssociationSet>
+          <AssociationSet Name="schichtplan_ibfk_1" Association="Self.schichtplan_ibfk_1">
+            <End Role="schichttyp" EntitySet="schichttyp" />
+            <End Role="schichtplan" EntitySet="schichtplan" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="krankenhausModelStoreContainer" CdmEntityContainer="krankenhausEntities1">
+          <EntitySetMapping Name="abteilung">
+            <EntityTypeMapping TypeName="krankenhausModel.abteilung">
+              <MappingFragment StoreEntitySet="abteilung">
+                <ScalarProperty Name="PK_Abteilung" ColumnName="PK_Abteilung" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Kürzel" ColumnName="Kürzel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="beruf">
+            <EntityTypeMapping TypeName="krankenhausModel.beruf">
+              <MappingFragment StoreEntitySet="beruf">
+                <ScalarProperty Name="PK_Beruf" ColumnName="PK_Beruf" />
+                <ScalarProperty Name="Berufsbezeichnung" ColumnName="Berufsbezeichnung" />
+                <ScalarProperty Name="Kürzel" ColumnName="Kürzel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diagnose">
+            <EntityTypeMapping TypeName="krankenhausModel.diagnose">
+              <MappingFragment StoreEntitySet="diagnose">
+                <ScalarProperty Name="PK_Diagnose" ColumnName="PK_Diagnose" />
+                <ScalarProperty Name="Diagnosezeitpunkt" ColumnName="Diagnosezeitpunkt" />
+                <ScalarProperty Name="Diagnosestatus" ColumnName="Diagnosestatus" />
+                <ScalarProperty Name="FK_Krankheit" ColumnName="FK_Krankheit" />
+                <ScalarProperty Name="FK_Patient" ColumnName="FK_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gebaeude">
+            <EntityTypeMapping TypeName="krankenhausModel.gebaeude">
+              <MappingFragment StoreEntitySet="gebaeude">
+                <ScalarProperty Name="PK_Gebaeude" ColumnName="PK_Gebaeude" />
+                <ScalarProperty Name="Gebaeude_Nummer" ColumnName="Gebaeude_Nummer" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Krankheit" ColumnName="Krankheit" />
+                <ScalarProperty Name="FK_Ort" ColumnName="FK_Ort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gehalt">
+            <EntityTypeMapping TypeName="krankenhausModel.gehalt">
+              <MappingFragment StoreEntitySet="gehalt">
+                <ScalarProperty Name="PK_Gehalt" ColumnName="PK_Gehalt" />
+                <ScalarProperty Name="Gehaltsklasse" ColumnName="Gehaltsklasse" />
+                <ScalarProperty Name="Betrag" ColumnName="Betrag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="krankenkassenkarte">
+            <EntityTypeMapping TypeName="krankenhausModel.krankenkassenkarte">
+              <MappingFragment StoreEntitySet="krankenkassenkarte">
+                <ScalarProperty Name="PK_Krankenkassenkarte" ColumnName="PK_Krankenkassenkarte" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Versichertennummer" ColumnName="Versichertennummer" />
+                <ScalarProperty Name="Versicherungsart" ColumnName="Versicherungsart" />
+                <ScalarProperty Name="Ablaufdatum" ColumnName="Ablaufdatum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="krankheit">
+            <EntityTypeMapping TypeName="krankenhausModel.krankheit">
+              <MappingFragment StoreEntitySet="krankheit">
+                <ScalarProperty Name="PK_Krankheit" ColumnName="PK_Krankheit" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Krankheitsgruppe" ColumnName="Krankheitsgruppe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mitarbeiter">
+            <EntityTypeMapping TypeName="krankenhausModel.mitarbeiter">
+              <MappingFragment StoreEntitySet="mitarbeiter">
+                <ScalarProperty Name="PK_Mitarbeiter" ColumnName="PK_Mitarbeiter" />
+                <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+                <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+                <ScalarProperty Name="Geburtsdatum" ColumnName="Geburtsdatum" />
+                <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+                <ScalarProperty Name="Passwort" ColumnName="Passwort" />
+                <ScalarProperty Name="Telefonnummer" ColumnName="Telefonnummer" />
+                <ScalarProperty Name="Straße" ColumnName="Straße" />
+                <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
+                <ScalarProperty Name="FK_Beruf" ColumnName="FK_Beruf" />
+                <ScalarProperty Name="FK_Gehalt" ColumnName="FK_Gehalt" />
+                <ScalarProperty Name="FK_Ort" ColumnName="FK_Ort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ort">
+            <EntityTypeMapping TypeName="krankenhausModel.ort">
+              <MappingFragment StoreEntitySet="ort">
+                <ScalarProperty Name="PK_Ort" ColumnName="PK_Ort" />
+                <ScalarProperty Name="PLZ" ColumnName="PLZ" />
+                <ScalarProperty Name="Stadt" ColumnName="Stadt" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patient">
+            <EntityTypeMapping TypeName="krankenhausModel.patient">
+              <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="PK_Patient" ColumnName="PK_Patient" />
+                <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+                <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+                <ScalarProperty Name="FK_Krankheit" ColumnName="FK_Krankheit" />
+                <ScalarProperty Name="FK_Krankenkasse" ColumnName="FK_Krankenkasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raum">
+            <EntityTypeMapping TypeName="krankenhausModel.raum">
+              <MappingFragment StoreEntitySet="raum">
+                <ScalarProperty Name="PK_Raum" ColumnName="PK_Raum" />
+                <ScalarProperty Name="Raumnummer" ColumnName="Raumnummer" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="FK_Gebäude" ColumnName="FK_Gebäude" />
+                <ScalarProperty Name="FK_Abteilung" ColumnName="FK_Abteilung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schichtplan">
+            <EntityTypeMapping TypeName="krankenhausModel.schichtplan">
+              <MappingFragment StoreEntitySet="schichtplan">
+                <ScalarProperty Name="PK_Schichtplan" ColumnName="PK_Schichtplan" />
+                <ScalarProperty Name="Schichtbeginn" ColumnName="Schichtbeginn" />
+                <ScalarProperty Name="Schichtende" ColumnName="Schichtende" />
+                <ScalarProperty Name="FK_Schichttyp" ColumnName="FK_Schichttyp" />
+                <ScalarProperty Name="FK_Mitarbeiter" ColumnName="FK_Mitarbeiter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schichttyp">
+            <EntityTypeMapping TypeName="krankenhausModel.schichttyp">
+              <MappingFragment StoreEntitySet="schichttyp">
+                <ScalarProperty Name="PK_Schichttyp" ColumnName="PK_Schichttyp" />
+                <ScalarProperty Name="Schichtbezeichnung" ColumnName="Schichtbezeichnung" />
+                <ScalarProperty Name="Kürzel" ColumnName="Kürzel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="termin">
+            <EntityTypeMapping TypeName="krankenhausModel.termin">
+              <MappingFragment StoreEntitySet="termin">
+                <ScalarProperty Name="PK_Termin" ColumnName="PK_Termin" />
+                <ScalarProperty Name="Termin_Start" ColumnName="Termin_Start" />
+                <ScalarProperty Name="Termin_Ende" ColumnName="Termin_Ende" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="FK_Raum" ColumnName="FK_Raum" />
+                <ScalarProperty Name="FK_Patient" ColumnName="FK_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

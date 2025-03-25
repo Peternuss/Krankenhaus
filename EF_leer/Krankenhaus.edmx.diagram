@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c2619f4b4594bb8bc11231733a3ac3c" Name="Diagram1">
+        <EntityTypeShape EntityType="krankenhausModel.abteilung" Width="1.5" PointX="3.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.beruf" Width="1.5" PointX="4.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.diagnose" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.gebaeude" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.gehalt" Width="1.5" PointX="4.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.krankenkassenkarte" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.krankheit" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.mitarbeiter" Width="1.5" PointX="6.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.ort" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.patient" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.raum" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.schichtplan" Width="1.5" PointX="9" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.schichttyp" Width="1.5" PointX="6.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="krankenhausModel.termin" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="krankenhausModel.raum_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.mitarbeiter_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.diagnose_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.diagnose_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.gebaeude_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.raum_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.mitarbeiter_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.patient_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.patient_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.mitarbeiter_ibfk_4" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.schichtplan_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.termin_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.termin_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="krankenhausModel.schichtplan_ibfk_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

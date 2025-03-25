@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbmusicModel1.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_album">
+          <Key>
+            <PropertyRef Name="id_album" />
+          </Key>
+          <Property Name="id_album" Type="int" Nullable="false" />
+          <Property Name="album_title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_artist" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_artist">
+          <Key>
+            <PropertyRef Name="id_artist" />
+          </Key>
+          <Property Name="id_artist" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="artistname" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_verkauf">
+          <Key>
+            <PropertyRef Name="ean" />
+          </Key>
+          <Property Name="ean" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="preis" Type="float" Nullable="false" />
+          <Property Name="vertrieb" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="id_album" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="tbl_abc_fk">
+          <End Role="tbl_album" Type="Self.tbl_album" Multiplicity="1" />
+          <End Role="tbl_verkauf" Type="Self.tbl_verkauf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_album">
+              <PropertyRef Name="id_album" />
+            </Principal>
+            <Dependent Role="tbl_verkauf">
+              <PropertyRef Name="id_album" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_album_ibfk_1">
+          <End Role="tbl_artist" Type="Self.tbl_artist" Multiplicity="1" />
+          <End Role="tbl_album" Type="Self.tbl_album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_artist">
+              <PropertyRef Name="id_artist" />
+            </Principal>
+            <Dependent Role="tbl_album">
+              <PropertyRef Name="id_artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbmusicModel1StoreContainer">
+          <EntitySet Name="tbl_album" EntityType="Self.tbl_album" Schema="dbmusic" store:Type="Tables" />
+          <EntitySet Name="tbl_artist" EntityType="Self.tbl_artist" Schema="dbmusic" store:Type="Tables" />
+          <EntitySet Name="tbl_verkauf" EntityType="Self.tbl_verkauf" Schema="dbmusic" store:Type="Tables" />
+          <AssociationSet Name="tbl_abc_fk" Association="Self.tbl_abc_fk">
+            <End Role="tbl_album" EntitySet="tbl_album" />
+            <End Role="tbl_verkauf" EntitySet="tbl_verkauf" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_album_ibfk_1" Association="Self.tbl_album_ibfk_1">
+            <End Role="tbl_artist" EntitySet="tbl_artist" />
+            <End Role="tbl_album" EntitySet="tbl_album" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbmusicModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_album">
+          <Key>
+            <PropertyRef Name="id_album" />
+          </Key>
+          <Property Name="id_album" Type="Int32" Nullable="false" />
+          <Property Name="album_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_artist" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_verkauf" Relationship="Self.tbl_abc_fk" FromRole="tbl_album" ToRole="tbl_verkauf" />
+          <NavigationProperty Name="tbl_artist" Relationship="Self.tbl_album_ibfk_1" FromRole="tbl_album" ToRole="tbl_artist" />
+        </EntityType>
+        <EntityType Name="tbl_artist">
+          <Key>
+            <PropertyRef Name="id_artist" />
+          </Key>
+          <Property Name="id_artist" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="artistname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_album" Relationship="Self.tbl_album_ibfk_1" FromRole="tbl_artist" ToRole="tbl_album" />
+        </EntityType>
+        <EntityType Name="tbl_verkauf">
+          <Key>
+            <PropertyRef Name="ean" />
+          </Key>
+          <Property Name="ean" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="preis" Type="Single" Nullable="false" />
+          <Property Name="vertrieb" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_album" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_album" Relationship="Self.tbl_abc_fk" FromRole="tbl_verkauf" ToRole="tbl_album" />
+        </EntityType>
+        <Association Name="tbl_abc_fk">
+          <End Role="tbl_album" Type="Self.tbl_album" Multiplicity="1" />
+          <End Role="tbl_verkauf" Type="Self.tbl_verkauf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_album">
+              <PropertyRef Name="id_album" />
+            </Principal>
+            <Dependent Role="tbl_verkauf">
+              <PropertyRef Name="id_album" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_album_ibfk_1">
+          <End Role="tbl_artist" Type="Self.tbl_artist" Multiplicity="1" />
+          <End Role="tbl_album" Type="Self.tbl_album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_artist">
+              <PropertyRef Name="id_artist" />
+            </Principal>
+            <Dependent Role="tbl_album">
+              <PropertyRef Name="id_artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbmusicEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_album" EntityType="Self.tbl_album" />
+          <EntitySet Name="tbl_artist" EntityType="Self.tbl_artist" />
+          <EntitySet Name="tbl_verkauf" EntityType="Self.tbl_verkauf" />
+          <AssociationSet Name="tbl_abc_fk" Association="Self.tbl_abc_fk">
+            <End Role="tbl_album" EntitySet="tbl_album" />
+            <End Role="tbl_verkauf" EntitySet="tbl_verkauf" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_album_ibfk_1" Association="Self.tbl_album_ibfk_1">
+            <End Role="tbl_artist" EntitySet="tbl_artist" />
+            <End Role="tbl_album" EntitySet="tbl_album" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbmusicModel1StoreContainer" CdmEntityContainer="dbmusicEntities1">
+          <EntitySetMapping Name="tbl_album">
+            <EntityTypeMapping TypeName="dbmusicModel1.tbl_album">
+              <MappingFragment StoreEntitySet="tbl_album">
+                <ScalarProperty Name="id_album" ColumnName="id_album" />
+                <ScalarProperty Name="album_title" ColumnName="album_title" />
+                <ScalarProperty Name="id_artist" ColumnName="id_artist" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_artist">
+            <EntityTypeMapping TypeName="dbmusicModel1.tbl_artist">
+              <MappingFragment StoreEntitySet="tbl_artist">
+                <ScalarProperty Name="id_artist" ColumnName="id_artist" />
+                <ScalarProperty Name="artistname" ColumnName="artistname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_verkauf">
+            <EntityTypeMapping TypeName="dbmusicModel1.tbl_verkauf">
+              <MappingFragment StoreEntitySet="tbl_verkauf">
+                <ScalarProperty Name="ean" ColumnName="ean" />
+                <ScalarProperty Name="preis" ColumnName="preis" />
+                <ScalarProperty Name="vertrieb" ColumnName="vertrieb" />
+                <ScalarProperty Name="id_album" ColumnName="id_album" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
