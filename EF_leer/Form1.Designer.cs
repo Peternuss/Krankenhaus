@@ -75,7 +75,6 @@ namespace EF_leer
             this.button1 = new System.Windows.Forms.Button();
             this.terminBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.terminBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -112,16 +111,7 @@ namespace EF_leer
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.terminDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bezeichnungTextBox4 = new System.Windows.Forms.TextBox();
-            this.raumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fK_OrtTextBox = new System.Windows.Forms.TextBox();
             this.gebaeude_NummerTextBox = new System.Windows.Forms.TextBox();
             this.krankheitTextBox = new System.Windows.Forms.TextBox();
@@ -142,7 +132,6 @@ namespace EF_leer
             this.termin_EndeDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.termin_StartDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.raumBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.button6 = new System.Windows.Forms.Button();
             this.bezeichnungTextBox6 = new System.Windows.Forms.TextBox();
@@ -158,6 +147,29 @@ namespace EF_leer
             this.gebaeude_NummerTextBox1 = new System.Windows.Forms.TextBox();
             this.krankheitTextBox1 = new System.Windows.Forms.TextBox();
             this.pK_GebaeudeTextBox1 = new System.Windows.Forms.TextBox();
+            this.terminBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raumBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.raumBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorMoveFirstItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem2 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem2 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem2 = new System.Windows.Forms.ToolStripButton();
             bezeichnungLabel = new System.Windows.Forms.Label();
             bezeichnungLabel1 = new System.Windows.Forms.Label();
             fK_PatientLabel = new System.Windows.Forms.Label();
@@ -201,14 +213,16 @@ namespace EF_leer
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminBindingNavigator)).BeginInit();
             this.terminBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
+            this.bindingNavigator2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bezeichnungLabel
@@ -394,7 +408,7 @@ namespace EF_leer
             // bezeichnungLabel5
             // 
             bezeichnungLabel5.AutoSize = true;
-            bezeichnungLabel5.Location = new System.Drawing.Point(12, 9);
+            bezeichnungLabel5.Location = new System.Drawing.Point(12, 37);
             bezeichnungLabel5.Name = "bezeichnungLabel5";
             bezeichnungLabel5.Size = new System.Drawing.Size(72, 13);
             bezeichnungLabel5.TabIndex = 0;
@@ -403,7 +417,7 @@ namespace EF_leer
             // fK_PatientLabel1
             // 
             fK_PatientLabel1.AutoSize = true;
-            fK_PatientLabel1.Location = new System.Drawing.Point(12, 35);
+            fK_PatientLabel1.Location = new System.Drawing.Point(12, 63);
             fK_PatientLabel1.Name = "fK_PatientLabel1";
             fK_PatientLabel1.Size = new System.Drawing.Size(59, 13);
             fK_PatientLabel1.TabIndex = 2;
@@ -412,7 +426,7 @@ namespace EF_leer
             // fK_RaumLabel1
             // 
             fK_RaumLabel1.AutoSize = true;
-            fK_RaumLabel1.Location = new System.Drawing.Point(12, 61);
+            fK_RaumLabel1.Location = new System.Drawing.Point(12, 89);
             fK_RaumLabel1.Name = "fK_RaumLabel1";
             fK_RaumLabel1.Size = new System.Drawing.Size(54, 13);
             fK_RaumLabel1.TabIndex = 4;
@@ -421,7 +435,7 @@ namespace EF_leer
             // pK_TerminLabel1
             // 
             pK_TerminLabel1.AutoSize = true;
-            pK_TerminLabel1.Location = new System.Drawing.Point(12, 87);
+            pK_TerminLabel1.Location = new System.Drawing.Point(12, 115);
             pK_TerminLabel1.Name = "pK_TerminLabel1";
             pK_TerminLabel1.Size = new System.Drawing.Size(59, 13);
             pK_TerminLabel1.TabIndex = 6;
@@ -430,7 +444,7 @@ namespace EF_leer
             // termin_EndeLabel1
             // 
             termin_EndeLabel1.AutoSize = true;
-            termin_EndeLabel1.Location = new System.Drawing.Point(12, 114);
+            termin_EndeLabel1.Location = new System.Drawing.Point(12, 142);
             termin_EndeLabel1.Name = "termin_EndeLabel1";
             termin_EndeLabel1.Size = new System.Drawing.Size(70, 13);
             termin_EndeLabel1.TabIndex = 8;
@@ -439,7 +453,7 @@ namespace EF_leer
             // termin_StartLabel1
             // 
             termin_StartLabel1.AutoSize = true;
-            termin_StartLabel1.Location = new System.Drawing.Point(12, 140);
+            termin_StartLabel1.Location = new System.Drawing.Point(12, 168);
             termin_StartLabel1.Name = "termin_StartLabel1";
             termin_StartLabel1.Size = new System.Drawing.Size(67, 13);
             termin_StartLabel1.TabIndex = 10;
@@ -533,10 +547,6 @@ namespace EF_leer
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Neu hinzufügen";
-            // 
-            // terminBindingSource
-            // 
-            this.terminBindingSource.DataSource = typeof(EF_leer.termin);
             // 
             // bindingNavigatorCountItem
             // 
@@ -890,54 +900,6 @@ namespace EF_leer
             this.terminDataGridView.Size = new System.Drawing.Size(539, 202);
             this.terminDataGridView.TabIndex = 26;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PK_Termin";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PK_Termin";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Termin_Start";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Termin_Start";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Termin_Ende";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Termin_Ende";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Bezeichnung";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Bezeichnung";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "FK_Raum";
-            this.dataGridViewTextBoxColumn5.HeaderText = "FK_Raum";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "FK_Patient";
-            this.dataGridViewTextBoxColumn6.HeaderText = "FK_Patient";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "patient";
-            this.dataGridViewTextBoxColumn7.HeaderText = "patient";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "raum";
-            this.dataGridViewTextBoxColumn8.HeaderText = "raum";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
             // bezeichnungTextBox4
             // 
             this.bezeichnungTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Bezeichnung", true));
@@ -945,10 +907,6 @@ namespace EF_leer
             this.bezeichnungTextBox4.Name = "bezeichnungTextBox4";
             this.bezeichnungTextBox4.Size = new System.Drawing.Size(100, 20);
             this.bezeichnungTextBox4.TabIndex = 17;
-            // 
-            // raumBindingSource
-            // 
-            this.raumBindingSource.DataSource = typeof(EF_leer.raum);
             // 
             // fK_OrtTextBox
             // 
@@ -1049,6 +1007,7 @@ namespace EF_leer
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(this.bindingNavigator2);
             this.tabPage3.Controls.Add(bezeichnungLabel8);
             this.tabPage3.Controls.Add(this.bezeichnungTextBox8);
             this.tabPage3.Controls.Add(fK_OrtLabel1);
@@ -1099,7 +1058,7 @@ namespace EF_leer
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(90, 57);
+            this.comboBox1.Location = new System.Drawing.Point(90, 85);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 21);
             this.comboBox1.TabIndex = 12;
@@ -1107,7 +1066,7 @@ namespace EF_leer
             // bezeichnungTextBox5
             // 
             this.bezeichnungTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "Bezeichnung", true));
-            this.bezeichnungTextBox5.Location = new System.Drawing.Point(90, 6);
+            this.bezeichnungTextBox5.Location = new System.Drawing.Point(90, 34);
             this.bezeichnungTextBox5.Name = "bezeichnungTextBox5";
             this.bezeichnungTextBox5.Size = new System.Drawing.Size(200, 20);
             this.bezeichnungTextBox5.TabIndex = 1;
@@ -1115,7 +1074,7 @@ namespace EF_leer
             // fK_PatientTextBox1
             // 
             this.fK_PatientTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "FK_Patient", true));
-            this.fK_PatientTextBox1.Location = new System.Drawing.Point(90, 32);
+            this.fK_PatientTextBox1.Location = new System.Drawing.Point(90, 60);
             this.fK_PatientTextBox1.Name = "fK_PatientTextBox1";
             this.fK_PatientTextBox1.Size = new System.Drawing.Size(200, 20);
             this.fK_PatientTextBox1.TabIndex = 3;
@@ -1123,7 +1082,7 @@ namespace EF_leer
             // pK_TerminTextBox1
             // 
             this.pK_TerminTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "PK_Termin", true));
-            this.pK_TerminTextBox1.Location = new System.Drawing.Point(90, 84);
+            this.pK_TerminTextBox1.Location = new System.Drawing.Point(90, 112);
             this.pK_TerminTextBox1.Name = "pK_TerminTextBox1";
             this.pK_TerminTextBox1.Size = new System.Drawing.Size(200, 20);
             this.pK_TerminTextBox1.TabIndex = 7;
@@ -1131,7 +1090,7 @@ namespace EF_leer
             // termin_EndeDateTimePicker1
             // 
             this.termin_EndeDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.terminBindingSource, "Termin_Ende", true));
-            this.termin_EndeDateTimePicker1.Location = new System.Drawing.Point(90, 110);
+            this.termin_EndeDateTimePicker1.Location = new System.Drawing.Point(90, 138);
             this.termin_EndeDateTimePicker1.Name = "termin_EndeDateTimePicker1";
             this.termin_EndeDateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.termin_EndeDateTimePicker1.TabIndex = 9;
@@ -1139,7 +1098,7 @@ namespace EF_leer
             // termin_StartDateTimePicker1
             // 
             this.termin_StartDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.terminBindingSource, "Termin_Start", true));
-            this.termin_StartDateTimePicker1.Location = new System.Drawing.Point(90, 136);
+            this.termin_StartDateTimePicker1.Location = new System.Drawing.Point(90, 164);
             this.termin_StartDateTimePicker1.Name = "termin_StartDateTimePicker1";
             this.termin_StartDateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.termin_StartDateTimePicker1.TabIndex = 11;
@@ -1154,10 +1113,6 @@ namespace EF_leer
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // raumBindingSource1
-            // 
-            this.raumBindingSource1.DataSource = typeof(EF_leer.raum);
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(25, 355);
@@ -1170,7 +1125,7 @@ namespace EF_leer
             // bezeichnungLabel6
             // 
             bezeichnungLabel6.AutoSize = true;
-            bezeichnungLabel6.Location = new System.Drawing.Point(305, 12);
+            bezeichnungLabel6.Location = new System.Drawing.Point(305, 40);
             bezeichnungLabel6.Name = "bezeichnungLabel6";
             bezeichnungLabel6.Size = new System.Drawing.Size(72, 13);
             bezeichnungLabel6.TabIndex = 13;
@@ -1179,7 +1134,7 @@ namespace EF_leer
             // bezeichnungTextBox6
             // 
             this.bezeichnungTextBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "Bezeichnung", true));
-            this.bezeichnungTextBox6.Location = new System.Drawing.Point(386, 9);
+            this.bezeichnungTextBox6.Location = new System.Drawing.Point(386, 37);
             this.bezeichnungTextBox6.Name = "bezeichnungTextBox6";
             this.bezeichnungTextBox6.Size = new System.Drawing.Size(100, 20);
             this.bezeichnungTextBox6.TabIndex = 14;
@@ -1187,7 +1142,7 @@ namespace EF_leer
             // fK_AbteilungLabel1
             // 
             fK_AbteilungLabel1.AutoSize = true;
-            fK_AbteilungLabel1.Location = new System.Drawing.Point(305, 38);
+            fK_AbteilungLabel1.Location = new System.Drawing.Point(305, 66);
             fK_AbteilungLabel1.Name = "fK_AbteilungLabel1";
             fK_AbteilungLabel1.Size = new System.Drawing.Size(70, 13);
             fK_AbteilungLabel1.TabIndex = 15;
@@ -1196,7 +1151,7 @@ namespace EF_leer
             // fK_AbteilungTextBox1
             // 
             this.fK_AbteilungTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "FK_Abteilung", true));
-            this.fK_AbteilungTextBox1.Location = new System.Drawing.Point(386, 35);
+            this.fK_AbteilungTextBox1.Location = new System.Drawing.Point(386, 63);
             this.fK_AbteilungTextBox1.Name = "fK_AbteilungTextBox1";
             this.fK_AbteilungTextBox1.Size = new System.Drawing.Size(100, 20);
             this.fK_AbteilungTextBox1.TabIndex = 16;
@@ -1204,7 +1159,7 @@ namespace EF_leer
             // fK_GebäudeLabel1
             // 
             fK_GebäudeLabel1.AutoSize = true;
-            fK_GebäudeLabel1.Location = new System.Drawing.Point(305, 64);
+            fK_GebäudeLabel1.Location = new System.Drawing.Point(305, 92);
             fK_GebäudeLabel1.Name = "fK_GebäudeLabel1";
             fK_GebäudeLabel1.Size = new System.Drawing.Size(70, 13);
             fK_GebäudeLabel1.TabIndex = 17;
@@ -1213,7 +1168,7 @@ namespace EF_leer
             // fK_GebäudeTextBox1
             // 
             this.fK_GebäudeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "FK_Gebäude", true));
-            this.fK_GebäudeTextBox1.Location = new System.Drawing.Point(386, 61);
+            this.fK_GebäudeTextBox1.Location = new System.Drawing.Point(386, 89);
             this.fK_GebäudeTextBox1.Name = "fK_GebäudeTextBox1";
             this.fK_GebäudeTextBox1.Size = new System.Drawing.Size(100, 20);
             this.fK_GebäudeTextBox1.TabIndex = 18;
@@ -1221,7 +1176,7 @@ namespace EF_leer
             // pK_RaumLabel1
             // 
             pK_RaumLabel1.AutoSize = true;
-            pK_RaumLabel1.Location = new System.Drawing.Point(305, 90);
+            pK_RaumLabel1.Location = new System.Drawing.Point(305, 118);
             pK_RaumLabel1.Name = "pK_RaumLabel1";
             pK_RaumLabel1.Size = new System.Drawing.Size(55, 13);
             pK_RaumLabel1.TabIndex = 19;
@@ -1230,7 +1185,7 @@ namespace EF_leer
             // pK_RaumTextBox1
             // 
             this.pK_RaumTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "PK_Raum", true));
-            this.pK_RaumTextBox1.Location = new System.Drawing.Point(386, 87);
+            this.pK_RaumTextBox1.Location = new System.Drawing.Point(386, 115);
             this.pK_RaumTextBox1.Name = "pK_RaumTextBox1";
             this.pK_RaumTextBox1.Size = new System.Drawing.Size(100, 20);
             this.pK_RaumTextBox1.TabIndex = 20;
@@ -1238,7 +1193,7 @@ namespace EF_leer
             // raumnummerLabel1
             // 
             raumnummerLabel1.AutoSize = true;
-            raumnummerLabel1.Location = new System.Drawing.Point(305, 116);
+            raumnummerLabel1.Location = new System.Drawing.Point(305, 144);
             raumnummerLabel1.Name = "raumnummerLabel1";
             raumnummerLabel1.Size = new System.Drawing.Size(75, 13);
             raumnummerLabel1.TabIndex = 21;
@@ -1247,7 +1202,7 @@ namespace EF_leer
             // raumnummerTextBox1
             // 
             this.raumnummerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "Raumnummer", true));
-            this.raumnummerTextBox1.Location = new System.Drawing.Point(386, 113);
+            this.raumnummerTextBox1.Location = new System.Drawing.Point(386, 141);
             this.raumnummerTextBox1.Name = "raumnummerTextBox1";
             this.raumnummerTextBox1.Size = new System.Drawing.Size(100, 20);
             this.raumnummerTextBox1.TabIndex = 22;
@@ -1255,7 +1210,7 @@ namespace EF_leer
             // bezeichnungLabel7
             // 
             bezeichnungLabel7.AutoSize = true;
-            bezeichnungLabel7.Location = new System.Drawing.Point(305, 176);
+            bezeichnungLabel7.Location = new System.Drawing.Point(305, 204);
             bezeichnungLabel7.Name = "bezeichnungLabel7";
             bezeichnungLabel7.Size = new System.Drawing.Size(72, 13);
             bezeichnungLabel7.TabIndex = 23;
@@ -1264,7 +1219,7 @@ namespace EF_leer
             // bezeichnungTextBox7
             // 
             this.bezeichnungTextBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "abteilung.Bezeichnung", true));
-            this.bezeichnungTextBox7.Location = new System.Drawing.Point(383, 173);
+            this.bezeichnungTextBox7.Location = new System.Drawing.Point(383, 201);
             this.bezeichnungTextBox7.Name = "bezeichnungTextBox7";
             this.bezeichnungTextBox7.Size = new System.Drawing.Size(100, 20);
             this.bezeichnungTextBox7.TabIndex = 24;
@@ -1272,7 +1227,7 @@ namespace EF_leer
             // kürzelLabel1
             // 
             kürzelLabel1.AutoSize = true;
-            kürzelLabel1.Location = new System.Drawing.Point(305, 202);
+            kürzelLabel1.Location = new System.Drawing.Point(305, 230);
             kürzelLabel1.Name = "kürzelLabel1";
             kürzelLabel1.Size = new System.Drawing.Size(39, 13);
             kürzelLabel1.TabIndex = 25;
@@ -1281,7 +1236,7 @@ namespace EF_leer
             // kürzelTextBox1
             // 
             this.kürzelTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "abteilung.Kürzel", true));
-            this.kürzelTextBox1.Location = new System.Drawing.Point(383, 199);
+            this.kürzelTextBox1.Location = new System.Drawing.Point(383, 227);
             this.kürzelTextBox1.Name = "kürzelTextBox1";
             this.kürzelTextBox1.Size = new System.Drawing.Size(100, 20);
             this.kürzelTextBox1.TabIndex = 26;
@@ -1289,7 +1244,7 @@ namespace EF_leer
             // pK_AbteilungLabel1
             // 
             pK_AbteilungLabel1.AutoSize = true;
-            pK_AbteilungLabel1.Location = new System.Drawing.Point(305, 228);
+            pK_AbteilungLabel1.Location = new System.Drawing.Point(305, 256);
             pK_AbteilungLabel1.Name = "pK_AbteilungLabel1";
             pK_AbteilungLabel1.Size = new System.Drawing.Size(71, 13);
             pK_AbteilungLabel1.TabIndex = 27;
@@ -1298,7 +1253,7 @@ namespace EF_leer
             // pK_AbteilungTextBox1
             // 
             this.pK_AbteilungTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "abteilung.PK_Abteilung", true));
-            this.pK_AbteilungTextBox1.Location = new System.Drawing.Point(383, 225);
+            this.pK_AbteilungTextBox1.Location = new System.Drawing.Point(383, 253);
             this.pK_AbteilungTextBox1.Name = "pK_AbteilungTextBox1";
             this.pK_AbteilungTextBox1.Size = new System.Drawing.Size(100, 20);
             this.pK_AbteilungTextBox1.TabIndex = 28;
@@ -1306,7 +1261,7 @@ namespace EF_leer
             // bezeichnungLabel8
             // 
             bezeichnungLabel8.AutoSize = true;
-            bezeichnungLabel8.Location = new System.Drawing.Point(17, 179);
+            bezeichnungLabel8.Location = new System.Drawing.Point(17, 207);
             bezeichnungLabel8.Name = "bezeichnungLabel8";
             bezeichnungLabel8.Size = new System.Drawing.Size(72, 13);
             bezeichnungLabel8.TabIndex = 29;
@@ -1315,7 +1270,7 @@ namespace EF_leer
             // bezeichnungTextBox8
             // 
             this.bezeichnungTextBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Bezeichnung", true));
-            this.bezeichnungTextBox8.Location = new System.Drawing.Point(125, 176);
+            this.bezeichnungTextBox8.Location = new System.Drawing.Point(125, 204);
             this.bezeichnungTextBox8.Name = "bezeichnungTextBox8";
             this.bezeichnungTextBox8.Size = new System.Drawing.Size(100, 20);
             this.bezeichnungTextBox8.TabIndex = 30;
@@ -1323,7 +1278,7 @@ namespace EF_leer
             // fK_OrtLabel1
             // 
             fK_OrtLabel1.AutoSize = true;
-            fK_OrtLabel1.Location = new System.Drawing.Point(17, 205);
+            fK_OrtLabel1.Location = new System.Drawing.Point(17, 233);
             fK_OrtLabel1.Name = "fK_OrtLabel1";
             fK_OrtLabel1.Size = new System.Drawing.Size(40, 13);
             fK_OrtLabel1.TabIndex = 31;
@@ -1332,7 +1287,7 @@ namespace EF_leer
             // fK_OrtTextBox1
             // 
             this.fK_OrtTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.FK_Ort", true));
-            this.fK_OrtTextBox1.Location = new System.Drawing.Point(125, 202);
+            this.fK_OrtTextBox1.Location = new System.Drawing.Point(125, 230);
             this.fK_OrtTextBox1.Name = "fK_OrtTextBox1";
             this.fK_OrtTextBox1.Size = new System.Drawing.Size(100, 20);
             this.fK_OrtTextBox1.TabIndex = 32;
@@ -1340,7 +1295,7 @@ namespace EF_leer
             // gebaeude_NummerLabel1
             // 
             gebaeude_NummerLabel1.AutoSize = true;
-            gebaeude_NummerLabel1.Location = new System.Drawing.Point(17, 231);
+            gebaeude_NummerLabel1.Location = new System.Drawing.Point(17, 259);
             gebaeude_NummerLabel1.Name = "gebaeude_NummerLabel1";
             gebaeude_NummerLabel1.Size = new System.Drawing.Size(102, 13);
             gebaeude_NummerLabel1.TabIndex = 33;
@@ -1349,7 +1304,7 @@ namespace EF_leer
             // gebaeude_NummerTextBox1
             // 
             this.gebaeude_NummerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Gebaeude_Nummer", true));
-            this.gebaeude_NummerTextBox1.Location = new System.Drawing.Point(125, 228);
+            this.gebaeude_NummerTextBox1.Location = new System.Drawing.Point(125, 256);
             this.gebaeude_NummerTextBox1.Name = "gebaeude_NummerTextBox1";
             this.gebaeude_NummerTextBox1.Size = new System.Drawing.Size(100, 20);
             this.gebaeude_NummerTextBox1.TabIndex = 34;
@@ -1357,7 +1312,7 @@ namespace EF_leer
             // krankheitLabel1
             // 
             krankheitLabel1.AutoSize = true;
-            krankheitLabel1.Location = new System.Drawing.Point(17, 257);
+            krankheitLabel1.Location = new System.Drawing.Point(17, 285);
             krankheitLabel1.Name = "krankheitLabel1";
             krankheitLabel1.Size = new System.Drawing.Size(55, 13);
             krankheitLabel1.TabIndex = 35;
@@ -1366,7 +1321,7 @@ namespace EF_leer
             // krankheitTextBox1
             // 
             this.krankheitTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Krankheit", true));
-            this.krankheitTextBox1.Location = new System.Drawing.Point(125, 254);
+            this.krankheitTextBox1.Location = new System.Drawing.Point(125, 282);
             this.krankheitTextBox1.Name = "krankheitTextBox1";
             this.krankheitTextBox1.Size = new System.Drawing.Size(100, 20);
             this.krankheitTextBox1.TabIndex = 36;
@@ -1374,7 +1329,7 @@ namespace EF_leer
             // pK_GebaeudeLabel1
             // 
             pK_GebaeudeLabel1.AutoSize = true;
-            pK_GebaeudeLabel1.Location = new System.Drawing.Point(17, 283);
+            pK_GebaeudeLabel1.Location = new System.Drawing.Point(17, 311);
             pK_GebaeudeLabel1.Name = "pK_GebaeudeLabel1";
             pK_GebaeudeLabel1.Size = new System.Drawing.Size(77, 13);
             pK_GebaeudeLabel1.TabIndex = 37;
@@ -1383,10 +1338,185 @@ namespace EF_leer
             // pK_GebaeudeTextBox1
             // 
             this.pK_GebaeudeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.PK_Gebaeude", true));
-            this.pK_GebaeudeTextBox1.Location = new System.Drawing.Point(125, 280);
+            this.pK_GebaeudeTextBox1.Location = new System.Drawing.Point(125, 308);
             this.pK_GebaeudeTextBox1.Name = "pK_GebaeudeTextBox1";
             this.pK_GebaeudeTextBox1.Size = new System.Drawing.Size(100, 20);
             this.pK_GebaeudeTextBox1.TabIndex = 38;
+            // 
+            // terminBindingSource
+            // 
+            this.terminBindingSource.DataSource = typeof(EF_leer.termin);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PK_Termin";
+            this.dataGridViewTextBoxColumn1.HeaderText = "PK_Termin";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Termin_Start";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Termin_Start";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Termin_Ende";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Termin_Ende";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Bezeichnung";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Bezeichnung";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FK_Raum";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FK_Raum";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FK_Patient";
+            this.dataGridViewTextBoxColumn6.HeaderText = "FK_Patient";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "patient";
+            this.dataGridViewTextBoxColumn7.HeaderText = "patient";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "raum";
+            this.dataGridViewTextBoxColumn8.HeaderText = "raum";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // raumBindingSource
+            // 
+            this.raumBindingSource.DataSource = typeof(EF_leer.raum);
+            // 
+            // raumBindingSource1
+            // 
+            this.raumBindingSource1.DataSource = typeof(EF_leer.raum);
+            // 
+            // bindingNavigator2
+            // 
+            this.bindingNavigator2.AddNewItem = this.bindingNavigatorAddNewItem2;
+            this.bindingNavigator2.BindingSource = this.raumBindingSource;
+            this.bindingNavigator2.CountItem = this.bindingNavigatorCountItem2;
+            this.bindingNavigator2.DeleteItem = this.bindingNavigatorDeleteItem2;
+            this.bindingNavigator2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem2,
+            this.bindingNavigatorMovePreviousItem2,
+            this.bindingNavigatorSeparator6,
+            this.bindingNavigatorPositionItem2,
+            this.bindingNavigatorCountItem2,
+            this.bindingNavigatorSeparator7,
+            this.bindingNavigatorMoveNextItem2,
+            this.bindingNavigatorMoveLastItem2,
+            this.bindingNavigatorSeparator8,
+            this.bindingNavigatorAddNewItem2,
+            this.bindingNavigatorDeleteItem2});
+            this.bindingNavigator2.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigator2.MoveFirstItem = this.bindingNavigatorMoveFirstItem2;
+            this.bindingNavigator2.MoveLastItem = this.bindingNavigatorMoveLastItem2;
+            this.bindingNavigator2.MoveNextItem = this.bindingNavigatorMoveNextItem2;
+            this.bindingNavigator2.MovePreviousItem = this.bindingNavigatorMovePreviousItem2;
+            this.bindingNavigator2.Name = "bindingNavigator2";
+            this.bindingNavigator2.PositionItem = this.bindingNavigatorPositionItem2;
+            this.bindingNavigator2.Size = new System.Drawing.Size(762, 25);
+            this.bindingNavigator2.TabIndex = 39;
+            this.bindingNavigator2.Text = "bindingNavigator2";
+            // 
+            // bindingNavigatorMoveFirstItem2
+            // 
+            this.bindingNavigatorMoveFirstItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem2.Image")));
+            this.bindingNavigatorMoveFirstItem2.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem2.Text = "Erste verschieben";
+            // 
+            // bindingNavigatorMovePreviousItem2
+            // 
+            this.bindingNavigatorMovePreviousItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem2.Image")));
+            this.bindingNavigatorMovePreviousItem2.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem2.Text = "Vorherige verschieben";
+            // 
+            // bindingNavigatorSeparator6
+            // 
+            this.bindingNavigatorSeparator6.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem2
+            // 
+            this.bindingNavigatorPositionItem2.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem2.AutoSize = false;
+            this.bindingNavigatorPositionItem2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem2.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem2.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem2.Text = "0";
+            this.bindingNavigatorPositionItem2.ToolTipText = "Aktuelle Position";
+            // 
+            // bindingNavigatorCountItem2
+            // 
+            this.bindingNavigatorCountItem2.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem2.Size = new System.Drawing.Size(44, 22);
+            this.bindingNavigatorCountItem2.Text = "von {0}";
+            this.bindingNavigatorCountItem2.ToolTipText = "Die Gesamtanzahl der Elemente.";
+            // 
+            // bindingNavigatorSeparator7
+            // 
+            this.bindingNavigatorSeparator7.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem2
+            // 
+            this.bindingNavigatorMoveNextItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem2.Image")));
+            this.bindingNavigatorMoveNextItem2.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem2.Text = "Nächste verschieben";
+            // 
+            // bindingNavigatorMoveLastItem2
+            // 
+            this.bindingNavigatorMoveLastItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem2.Image")));
+            this.bindingNavigatorMoveLastItem2.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem2.Text = "Letzte verschieben";
+            // 
+            // bindingNavigatorSeparator8
+            // 
+            this.bindingNavigatorSeparator8.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorAddNewItem2
+            // 
+            this.bindingNavigatorAddNewItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem2.Image")));
+            this.bindingNavigatorAddNewItem2.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem2.Text = "Neu hinzufügen";
+            // 
+            // bindingNavigatorDeleteItem2
+            // 
+            this.bindingNavigatorDeleteItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem2.Image")));
+            this.bindingNavigatorDeleteItem2.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem2.Text = "Löschen";
             // 
             // Form1
             // 
@@ -1402,17 +1532,20 @@ namespace EF_leer
             ((System.ComponentModel.ISupportInitialize)(this.terminBindingNavigator)).EndInit();
             this.terminBindingNavigator.ResumeLayout(false);
             this.terminBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
+            this.bindingNavigator2.ResumeLayout(false);
+            this.bindingNavigator2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1507,6 +1640,18 @@ namespace EF_leer
         private System.Windows.Forms.TextBox pK_RaumTextBox1;
         private System.Windows.Forms.TextBox raumnummerTextBox1;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.BindingNavigator bindingNavigator2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem2;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator6;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator7;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator8;
     }
 }
 
