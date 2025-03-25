@@ -50,18 +50,32 @@ namespace EF_leer
             System.Windows.Forms.Label gebaeude_NummerLabel;
             System.Windows.Forms.Label krankheitLabel;
             System.Windows.Forms.Label pK_GebaeudeLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.Label bezeichnungLabel5;
             System.Windows.Forms.Label fK_PatientLabel1;
             System.Windows.Forms.Label fK_RaumLabel1;
             System.Windows.Forms.Label pK_TerminLabel1;
             System.Windows.Forms.Label termin_EndeLabel1;
             System.Windows.Forms.Label termin_StartLabel1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.Label bezeichnungLabel6;
+            System.Windows.Forms.Label fK_AbteilungLabel1;
+            System.Windows.Forms.Label fK_GebäudeLabel1;
+            System.Windows.Forms.Label pK_RaumLabel1;
+            System.Windows.Forms.Label raumnummerLabel1;
+            System.Windows.Forms.Label bezeichnungLabel7;
+            System.Windows.Forms.Label kürzelLabel1;
+            System.Windows.Forms.Label pK_AbteilungLabel1;
+            System.Windows.Forms.Label bezeichnungLabel8;
+            System.Windows.Forms.Label fK_OrtLabel1;
+            System.Windows.Forms.Label gebaeude_NummerLabel1;
+            System.Windows.Forms.Label krankheitLabel1;
+            System.Windows.Forms.Label pK_GebaeudeLabel1;
             this.Raum = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.terminBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.terminBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -82,6 +96,8 @@ namespace EF_leer
             this.termin_StartDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.bezeichnungTextBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
@@ -96,7 +112,16 @@ namespace EF_leer
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.terminDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bezeichnungTextBox4 = new System.Windows.Forms.TextBox();
+            this.raumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fK_OrtTextBox = new System.Windows.Forms.TextBox();
             this.gebaeude_NummerTextBox = new System.Windows.Forms.TextBox();
             this.krankheitTextBox = new System.Windows.Forms.TextBox();
@@ -109,28 +134,30 @@ namespace EF_leer
             this.fK_GebäudeTextBox = new System.Windows.Forms.TextBox();
             this.pK_RaumTextBox = new System.Windows.Forms.TextBox();
             this.raumnummerTextBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.terminBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raumBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.raumBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.bezeichnungTextBox5 = new System.Windows.Forms.TextBox();
             this.fK_PatientTextBox1 = new System.Windows.Forms.TextBox();
             this.pK_TerminTextBox1 = new System.Windows.Forms.TextBox();
             this.termin_EndeDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.termin_StartDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.raumBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
+            this.button6 = new System.Windows.Forms.Button();
+            this.bezeichnungTextBox6 = new System.Windows.Forms.TextBox();
+            this.fK_AbteilungTextBox1 = new System.Windows.Forms.TextBox();
+            this.fK_GebäudeTextBox1 = new System.Windows.Forms.TextBox();
+            this.pK_RaumTextBox1 = new System.Windows.Forms.TextBox();
+            this.raumnummerTextBox1 = new System.Windows.Forms.TextBox();
+            this.bezeichnungTextBox7 = new System.Windows.Forms.TextBox();
+            this.kürzelTextBox1 = new System.Windows.Forms.TextBox();
+            this.pK_AbteilungTextBox1 = new System.Windows.Forms.TextBox();
+            this.bezeichnungTextBox8 = new System.Windows.Forms.TextBox();
+            this.fK_OrtTextBox1 = new System.Windows.Forms.TextBox();
+            this.gebaeude_NummerTextBox1 = new System.Windows.Forms.TextBox();
+            this.krankheitTextBox1 = new System.Windows.Forms.TextBox();
+            this.pK_GebaeudeTextBox1 = new System.Windows.Forms.TextBox();
             bezeichnungLabel = new System.Windows.Forms.Label();
             bezeichnungLabel1 = new System.Windows.Forms.Label();
             fK_PatientLabel = new System.Windows.Forms.Label();
@@ -157,17 +184,30 @@ namespace EF_leer
             pK_TerminLabel1 = new System.Windows.Forms.Label();
             termin_EndeLabel1 = new System.Windows.Forms.Label();
             termin_StartLabel1 = new System.Windows.Forms.Label();
+            bezeichnungLabel6 = new System.Windows.Forms.Label();
+            fK_AbteilungLabel1 = new System.Windows.Forms.Label();
+            fK_GebäudeLabel1 = new System.Windows.Forms.Label();
+            pK_RaumLabel1 = new System.Windows.Forms.Label();
+            raumnummerLabel1 = new System.Windows.Forms.Label();
+            bezeichnungLabel7 = new System.Windows.Forms.Label();
+            kürzelLabel1 = new System.Windows.Forms.Label();
+            pK_AbteilungLabel1 = new System.Windows.Forms.Label();
+            bezeichnungLabel8 = new System.Windows.Forms.Label();
+            fK_OrtLabel1 = new System.Windows.Forms.Label();
+            gebaeude_NummerLabel1 = new System.Windows.Forms.Label();
+            krankheitLabel1 = new System.Windows.Forms.Label();
+            pK_GebaeudeLabel1 = new System.Windows.Forms.Label();
             this.Raum.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminBindingNavigator)).BeginInit();
             this.terminBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminDataGridView)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -351,6 +391,60 @@ namespace EF_leer
             pK_GebaeudeLabel.TabIndex = 24;
             pK_GebaeudeLabel.Text = "PK Gebaeude:";
             // 
+            // bezeichnungLabel5
+            // 
+            bezeichnungLabel5.AutoSize = true;
+            bezeichnungLabel5.Location = new System.Drawing.Point(12, 9);
+            bezeichnungLabel5.Name = "bezeichnungLabel5";
+            bezeichnungLabel5.Size = new System.Drawing.Size(72, 13);
+            bezeichnungLabel5.TabIndex = 0;
+            bezeichnungLabel5.Text = "Bezeichnung:";
+            // 
+            // fK_PatientLabel1
+            // 
+            fK_PatientLabel1.AutoSize = true;
+            fK_PatientLabel1.Location = new System.Drawing.Point(12, 35);
+            fK_PatientLabel1.Name = "fK_PatientLabel1";
+            fK_PatientLabel1.Size = new System.Drawing.Size(59, 13);
+            fK_PatientLabel1.TabIndex = 2;
+            fK_PatientLabel1.Text = "FK Patient:";
+            // 
+            // fK_RaumLabel1
+            // 
+            fK_RaumLabel1.AutoSize = true;
+            fK_RaumLabel1.Location = new System.Drawing.Point(12, 61);
+            fK_RaumLabel1.Name = "fK_RaumLabel1";
+            fK_RaumLabel1.Size = new System.Drawing.Size(54, 13);
+            fK_RaumLabel1.TabIndex = 4;
+            fK_RaumLabel1.Text = "FK Raum:";
+            // 
+            // pK_TerminLabel1
+            // 
+            pK_TerminLabel1.AutoSize = true;
+            pK_TerminLabel1.Location = new System.Drawing.Point(12, 87);
+            pK_TerminLabel1.Name = "pK_TerminLabel1";
+            pK_TerminLabel1.Size = new System.Drawing.Size(59, 13);
+            pK_TerminLabel1.TabIndex = 6;
+            pK_TerminLabel1.Text = "PK Termin:";
+            // 
+            // termin_EndeLabel1
+            // 
+            termin_EndeLabel1.AutoSize = true;
+            termin_EndeLabel1.Location = new System.Drawing.Point(12, 114);
+            termin_EndeLabel1.Name = "termin_EndeLabel1";
+            termin_EndeLabel1.Size = new System.Drawing.Size(70, 13);
+            termin_EndeLabel1.TabIndex = 8;
+            termin_EndeLabel1.Text = "Termin Ende:";
+            // 
+            // termin_StartLabel1
+            // 
+            termin_StartLabel1.AutoSize = true;
+            termin_StartLabel1.Location = new System.Drawing.Point(12, 140);
+            termin_StartLabel1.Name = "termin_StartLabel1";
+            termin_StartLabel1.Size = new System.Drawing.Size(67, 13);
+            termin_StartLabel1.TabIndex = 10;
+            termin_StartLabel1.Text = "Termin Start:";
+            // 
             // Raum
             // 
             this.Raum.Controls.Add(this.tabPage1);
@@ -439,6 +533,10 @@ namespace EF_leer
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Neu hinzufügen";
+            // 
+            // terminBindingSource
+            // 
+            this.terminBindingSource.DataSource = typeof(EF_leer.termin);
             // 
             // bindingNavigatorCountItem
             // 
@@ -632,6 +730,24 @@ namespace EF_leer
             this.tabPage2.Text = "Termin anzeigen";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(14, 306);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(175, 23);
+            this.button5.TabIndex = 66;
+            this.button5.Text = "Ändern";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(100, 277);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(89, 23);
+            this.button4.TabIndex = 65;
+            this.button4.Text = "Löschen";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(13, 277);
@@ -774,6 +890,54 @@ namespace EF_leer
             this.terminDataGridView.Size = new System.Drawing.Size(539, 202);
             this.terminDataGridView.TabIndex = 26;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PK_Termin";
+            this.dataGridViewTextBoxColumn1.HeaderText = "PK_Termin";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Termin_Start";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Termin_Start";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Termin_Ende";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Termin_Ende";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Bezeichnung";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Bezeichnung";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FK_Raum";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FK_Raum";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FK_Patient";
+            this.dataGridViewTextBoxColumn6.HeaderText = "FK_Patient";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "patient";
+            this.dataGridViewTextBoxColumn7.HeaderText = "patient";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "raum";
+            this.dataGridViewTextBoxColumn8.HeaderText = "raum";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
             // bezeichnungTextBox4
             // 
             this.bezeichnungTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Bezeichnung", true));
@@ -781,6 +945,10 @@ namespace EF_leer
             this.bezeichnungTextBox4.Name = "bezeichnungTextBox4";
             this.bezeichnungTextBox4.Size = new System.Drawing.Size(100, 20);
             this.bezeichnungTextBox4.TabIndex = 17;
+            // 
+            // raumBindingSource
+            // 
+            this.raumBindingSource.DataSource = typeof(EF_leer.raum);
             // 
             // fK_OrtTextBox
             // 
@@ -878,27 +1046,36 @@ namespace EF_leer
             this.raumnummerTextBox.Size = new System.Drawing.Size(100, 20);
             this.raumnummerTextBox.TabIndex = 9;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(100, 277);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 23);
-            this.button4.TabIndex = 65;
-            this.button4.Text = "Löschen";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(14, 306);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(175, 23);
-            this.button5.TabIndex = 66;
-            this.button5.Text = "Ändern";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(bezeichnungLabel8);
+            this.tabPage3.Controls.Add(this.bezeichnungTextBox8);
+            this.tabPage3.Controls.Add(fK_OrtLabel1);
+            this.tabPage3.Controls.Add(this.fK_OrtTextBox1);
+            this.tabPage3.Controls.Add(gebaeude_NummerLabel1);
+            this.tabPage3.Controls.Add(this.gebaeude_NummerTextBox1);
+            this.tabPage3.Controls.Add(krankheitLabel1);
+            this.tabPage3.Controls.Add(this.krankheitTextBox1);
+            this.tabPage3.Controls.Add(pK_GebaeudeLabel1);
+            this.tabPage3.Controls.Add(this.pK_GebaeudeTextBox1);
+            this.tabPage3.Controls.Add(bezeichnungLabel7);
+            this.tabPage3.Controls.Add(this.bezeichnungTextBox7);
+            this.tabPage3.Controls.Add(kürzelLabel1);
+            this.tabPage3.Controls.Add(this.kürzelTextBox1);
+            this.tabPage3.Controls.Add(pK_AbteilungLabel1);
+            this.tabPage3.Controls.Add(this.pK_AbteilungTextBox1);
+            this.tabPage3.Controls.Add(bezeichnungLabel6);
+            this.tabPage3.Controls.Add(this.bezeichnungTextBox6);
+            this.tabPage3.Controls.Add(fK_AbteilungLabel1);
+            this.tabPage3.Controls.Add(this.fK_AbteilungTextBox1);
+            this.tabPage3.Controls.Add(fK_GebäudeLabel1);
+            this.tabPage3.Controls.Add(this.fK_GebäudeTextBox1);
+            this.tabPage3.Controls.Add(pK_RaumLabel1);
+            this.tabPage3.Controls.Add(this.pK_RaumTextBox1);
+            this.tabPage3.Controls.Add(raumnummerLabel1);
+            this.tabPage3.Controls.Add(this.raumnummerTextBox1);
+            this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(bezeichnungLabel5);
             this.tabPage3.Controls.Add(this.bezeichnungTextBox5);
@@ -919,65 +1096,53 @@ namespace EF_leer
             this.tabPage3.Text = "Raum";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // terminBindingSource
+            // comboBox1
             // 
-            this.terminBindingSource.DataSource = typeof(EF_leer.termin);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(90, 57);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
+            this.comboBox1.TabIndex = 12;
             // 
-            // dataGridViewTextBoxColumn1
+            // bezeichnungTextBox5
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PK_Termin";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PK_Termin";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.bezeichnungTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "Bezeichnung", true));
+            this.bezeichnungTextBox5.Location = new System.Drawing.Point(90, 6);
+            this.bezeichnungTextBox5.Name = "bezeichnungTextBox5";
+            this.bezeichnungTextBox5.Size = new System.Drawing.Size(200, 20);
+            this.bezeichnungTextBox5.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn2
+            // fK_PatientTextBox1
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Termin_Start";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Termin_Start";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.fK_PatientTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "FK_Patient", true));
+            this.fK_PatientTextBox1.Location = new System.Drawing.Point(90, 32);
+            this.fK_PatientTextBox1.Name = "fK_PatientTextBox1";
+            this.fK_PatientTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.fK_PatientTextBox1.TabIndex = 3;
             // 
-            // dataGridViewTextBoxColumn3
+            // pK_TerminTextBox1
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Termin_Ende";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Termin_Ende";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.pK_TerminTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "PK_Termin", true));
+            this.pK_TerminTextBox1.Location = new System.Drawing.Point(90, 84);
+            this.pK_TerminTextBox1.Name = "pK_TerminTextBox1";
+            this.pK_TerminTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.pK_TerminTextBox1.TabIndex = 7;
             // 
-            // dataGridViewTextBoxColumn4
+            // termin_EndeDateTimePicker1
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Bezeichnung";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Bezeichnung";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.termin_EndeDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.terminBindingSource, "Termin_Ende", true));
+            this.termin_EndeDateTimePicker1.Location = new System.Drawing.Point(90, 110);
+            this.termin_EndeDateTimePicker1.Name = "termin_EndeDateTimePicker1";
+            this.termin_EndeDateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.termin_EndeDateTimePicker1.TabIndex = 9;
             // 
-            // dataGridViewTextBoxColumn5
+            // termin_StartDateTimePicker1
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "FK_Raum";
-            this.dataGridViewTextBoxColumn5.HeaderText = "FK_Raum";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "FK_Patient";
-            this.dataGridViewTextBoxColumn6.HeaderText = "FK_Patient";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "patient";
-            this.dataGridViewTextBoxColumn7.HeaderText = "patient";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "raum";
-            this.dataGridViewTextBoxColumn8.HeaderText = "raum";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // raumBindingSource
-            // 
-            this.raumBindingSource.DataSource = typeof(EF_leer.raum);
-            // 
-            // raumBindingSource1
-            // 
-            this.raumBindingSource1.DataSource = typeof(EF_leer.raum);
+            this.termin_StartDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.terminBindingSource, "Termin_Start", true));
+            this.termin_StartDateTimePicker1.Location = new System.Drawing.Point(90, 136);
+            this.termin_StartDateTimePicker1.Name = "termin_StartDateTimePicker1";
+            this.termin_StartDateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.termin_StartDateTimePicker1.TabIndex = 11;
             // 
             // tabPage4
             // 
@@ -989,107 +1154,239 @@ namespace EF_leer
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // bezeichnungLabel5
+            // raumBindingSource1
             // 
-            bezeichnungLabel5.AutoSize = true;
-            bezeichnungLabel5.Location = new System.Drawing.Point(12, 9);
-            bezeichnungLabel5.Name = "bezeichnungLabel5";
-            bezeichnungLabel5.Size = new System.Drawing.Size(72, 13);
-            bezeichnungLabel5.TabIndex = 0;
-            bezeichnungLabel5.Text = "Bezeichnung:";
+            this.raumBindingSource1.DataSource = typeof(EF_leer.raum);
             // 
-            // bezeichnungTextBox5
+            // button6
             // 
-            this.bezeichnungTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "Bezeichnung", true));
-            this.bezeichnungTextBox5.Location = new System.Drawing.Point(90, 6);
-            this.bezeichnungTextBox5.Name = "bezeichnungTextBox5";
-            this.bezeichnungTextBox5.Size = new System.Drawing.Size(200, 20);
-            this.bezeichnungTextBox5.TabIndex = 1;
+            this.button6.Location = new System.Drawing.Point(25, 355);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "Speichern";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // fK_PatientLabel1
+            // bezeichnungLabel6
             // 
-            fK_PatientLabel1.AutoSize = true;
-            fK_PatientLabel1.Location = new System.Drawing.Point(12, 35);
-            fK_PatientLabel1.Name = "fK_PatientLabel1";
-            fK_PatientLabel1.Size = new System.Drawing.Size(59, 13);
-            fK_PatientLabel1.TabIndex = 2;
-            fK_PatientLabel1.Text = "FK Patient:";
+            bezeichnungLabel6.AutoSize = true;
+            bezeichnungLabel6.Location = new System.Drawing.Point(305, 12);
+            bezeichnungLabel6.Name = "bezeichnungLabel6";
+            bezeichnungLabel6.Size = new System.Drawing.Size(72, 13);
+            bezeichnungLabel6.TabIndex = 13;
+            bezeichnungLabel6.Text = "Bezeichnung:";
             // 
-            // fK_PatientTextBox1
+            // bezeichnungTextBox6
             // 
-            this.fK_PatientTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "FK_Patient", true));
-            this.fK_PatientTextBox1.Location = new System.Drawing.Point(90, 32);
-            this.fK_PatientTextBox1.Name = "fK_PatientTextBox1";
-            this.fK_PatientTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.fK_PatientTextBox1.TabIndex = 3;
+            this.bezeichnungTextBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "Bezeichnung", true));
+            this.bezeichnungTextBox6.Location = new System.Drawing.Point(386, 9);
+            this.bezeichnungTextBox6.Name = "bezeichnungTextBox6";
+            this.bezeichnungTextBox6.Size = new System.Drawing.Size(100, 20);
+            this.bezeichnungTextBox6.TabIndex = 14;
             // 
-            // fK_RaumLabel1
+            // fK_AbteilungLabel1
             // 
-            fK_RaumLabel1.AutoSize = true;
-            fK_RaumLabel1.Location = new System.Drawing.Point(12, 61);
-            fK_RaumLabel1.Name = "fK_RaumLabel1";
-            fK_RaumLabel1.Size = new System.Drawing.Size(54, 13);
-            fK_RaumLabel1.TabIndex = 4;
-            fK_RaumLabel1.Text = "FK Raum:";
+            fK_AbteilungLabel1.AutoSize = true;
+            fK_AbteilungLabel1.Location = new System.Drawing.Point(305, 38);
+            fK_AbteilungLabel1.Name = "fK_AbteilungLabel1";
+            fK_AbteilungLabel1.Size = new System.Drawing.Size(70, 13);
+            fK_AbteilungLabel1.TabIndex = 15;
+            fK_AbteilungLabel1.Text = "FK Abteilung:";
             // 
-            // pK_TerminLabel1
+            // fK_AbteilungTextBox1
             // 
-            pK_TerminLabel1.AutoSize = true;
-            pK_TerminLabel1.Location = new System.Drawing.Point(12, 87);
-            pK_TerminLabel1.Name = "pK_TerminLabel1";
-            pK_TerminLabel1.Size = new System.Drawing.Size(59, 13);
-            pK_TerminLabel1.TabIndex = 6;
-            pK_TerminLabel1.Text = "PK Termin:";
+            this.fK_AbteilungTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "FK_Abteilung", true));
+            this.fK_AbteilungTextBox1.Location = new System.Drawing.Point(386, 35);
+            this.fK_AbteilungTextBox1.Name = "fK_AbteilungTextBox1";
+            this.fK_AbteilungTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.fK_AbteilungTextBox1.TabIndex = 16;
             // 
-            // pK_TerminTextBox1
+            // fK_GebäudeLabel1
             // 
-            this.pK_TerminTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.terminBindingSource, "PK_Termin", true));
-            this.pK_TerminTextBox1.Location = new System.Drawing.Point(90, 84);
-            this.pK_TerminTextBox1.Name = "pK_TerminTextBox1";
-            this.pK_TerminTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.pK_TerminTextBox1.TabIndex = 7;
+            fK_GebäudeLabel1.AutoSize = true;
+            fK_GebäudeLabel1.Location = new System.Drawing.Point(305, 64);
+            fK_GebäudeLabel1.Name = "fK_GebäudeLabel1";
+            fK_GebäudeLabel1.Size = new System.Drawing.Size(70, 13);
+            fK_GebäudeLabel1.TabIndex = 17;
+            fK_GebäudeLabel1.Text = "FK Gebäude:";
             // 
-            // termin_EndeLabel1
+            // fK_GebäudeTextBox1
             // 
-            termin_EndeLabel1.AutoSize = true;
-            termin_EndeLabel1.Location = new System.Drawing.Point(12, 114);
-            termin_EndeLabel1.Name = "termin_EndeLabel1";
-            termin_EndeLabel1.Size = new System.Drawing.Size(70, 13);
-            termin_EndeLabel1.TabIndex = 8;
-            termin_EndeLabel1.Text = "Termin Ende:";
+            this.fK_GebäudeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "FK_Gebäude", true));
+            this.fK_GebäudeTextBox1.Location = new System.Drawing.Point(386, 61);
+            this.fK_GebäudeTextBox1.Name = "fK_GebäudeTextBox1";
+            this.fK_GebäudeTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.fK_GebäudeTextBox1.TabIndex = 18;
             // 
-            // termin_EndeDateTimePicker1
+            // pK_RaumLabel1
             // 
-            this.termin_EndeDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.terminBindingSource, "Termin_Ende", true));
-            this.termin_EndeDateTimePicker1.Location = new System.Drawing.Point(90, 110);
-            this.termin_EndeDateTimePicker1.Name = "termin_EndeDateTimePicker1";
-            this.termin_EndeDateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.termin_EndeDateTimePicker1.TabIndex = 9;
+            pK_RaumLabel1.AutoSize = true;
+            pK_RaumLabel1.Location = new System.Drawing.Point(305, 90);
+            pK_RaumLabel1.Name = "pK_RaumLabel1";
+            pK_RaumLabel1.Size = new System.Drawing.Size(55, 13);
+            pK_RaumLabel1.TabIndex = 19;
+            pK_RaumLabel1.Text = "PK Raum:";
             // 
-            // termin_StartLabel1
+            // pK_RaumTextBox1
             // 
-            termin_StartLabel1.AutoSize = true;
-            termin_StartLabel1.Location = new System.Drawing.Point(12, 140);
-            termin_StartLabel1.Name = "termin_StartLabel1";
-            termin_StartLabel1.Size = new System.Drawing.Size(67, 13);
-            termin_StartLabel1.TabIndex = 10;
-            termin_StartLabel1.Text = "Termin Start:";
+            this.pK_RaumTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "PK_Raum", true));
+            this.pK_RaumTextBox1.Location = new System.Drawing.Point(386, 87);
+            this.pK_RaumTextBox1.Name = "pK_RaumTextBox1";
+            this.pK_RaumTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.pK_RaumTextBox1.TabIndex = 20;
             // 
-            // termin_StartDateTimePicker1
+            // raumnummerLabel1
             // 
-            this.termin_StartDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.terminBindingSource, "Termin_Start", true));
-            this.termin_StartDateTimePicker1.Location = new System.Drawing.Point(90, 136);
-            this.termin_StartDateTimePicker1.Name = "termin_StartDateTimePicker1";
-            this.termin_StartDateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.termin_StartDateTimePicker1.TabIndex = 11;
+            raumnummerLabel1.AutoSize = true;
+            raumnummerLabel1.Location = new System.Drawing.Point(305, 116);
+            raumnummerLabel1.Name = "raumnummerLabel1";
+            raumnummerLabel1.Size = new System.Drawing.Size(75, 13);
+            raumnummerLabel1.TabIndex = 21;
+            raumnummerLabel1.Text = "Raumnummer:";
             // 
-            // comboBox1
+            // raumnummerTextBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(90, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 12;
+            this.raumnummerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "Raumnummer", true));
+            this.raumnummerTextBox1.Location = new System.Drawing.Point(386, 113);
+            this.raumnummerTextBox1.Name = "raumnummerTextBox1";
+            this.raumnummerTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.raumnummerTextBox1.TabIndex = 22;
+            // 
+            // bezeichnungLabel7
+            // 
+            bezeichnungLabel7.AutoSize = true;
+            bezeichnungLabel7.Location = new System.Drawing.Point(305, 176);
+            bezeichnungLabel7.Name = "bezeichnungLabel7";
+            bezeichnungLabel7.Size = new System.Drawing.Size(72, 13);
+            bezeichnungLabel7.TabIndex = 23;
+            bezeichnungLabel7.Text = "Bezeichnung:";
+            // 
+            // bezeichnungTextBox7
+            // 
+            this.bezeichnungTextBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "abteilung.Bezeichnung", true));
+            this.bezeichnungTextBox7.Location = new System.Drawing.Point(383, 173);
+            this.bezeichnungTextBox7.Name = "bezeichnungTextBox7";
+            this.bezeichnungTextBox7.Size = new System.Drawing.Size(100, 20);
+            this.bezeichnungTextBox7.TabIndex = 24;
+            // 
+            // kürzelLabel1
+            // 
+            kürzelLabel1.AutoSize = true;
+            kürzelLabel1.Location = new System.Drawing.Point(305, 202);
+            kürzelLabel1.Name = "kürzelLabel1";
+            kürzelLabel1.Size = new System.Drawing.Size(39, 13);
+            kürzelLabel1.TabIndex = 25;
+            kürzelLabel1.Text = "Kürzel:";
+            // 
+            // kürzelTextBox1
+            // 
+            this.kürzelTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "abteilung.Kürzel", true));
+            this.kürzelTextBox1.Location = new System.Drawing.Point(383, 199);
+            this.kürzelTextBox1.Name = "kürzelTextBox1";
+            this.kürzelTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.kürzelTextBox1.TabIndex = 26;
+            // 
+            // pK_AbteilungLabel1
+            // 
+            pK_AbteilungLabel1.AutoSize = true;
+            pK_AbteilungLabel1.Location = new System.Drawing.Point(305, 228);
+            pK_AbteilungLabel1.Name = "pK_AbteilungLabel1";
+            pK_AbteilungLabel1.Size = new System.Drawing.Size(71, 13);
+            pK_AbteilungLabel1.TabIndex = 27;
+            pK_AbteilungLabel1.Text = "PK Abteilung:";
+            // 
+            // pK_AbteilungTextBox1
+            // 
+            this.pK_AbteilungTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "abteilung.PK_Abteilung", true));
+            this.pK_AbteilungTextBox1.Location = new System.Drawing.Point(383, 225);
+            this.pK_AbteilungTextBox1.Name = "pK_AbteilungTextBox1";
+            this.pK_AbteilungTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.pK_AbteilungTextBox1.TabIndex = 28;
+            // 
+            // bezeichnungLabel8
+            // 
+            bezeichnungLabel8.AutoSize = true;
+            bezeichnungLabel8.Location = new System.Drawing.Point(17, 179);
+            bezeichnungLabel8.Name = "bezeichnungLabel8";
+            bezeichnungLabel8.Size = new System.Drawing.Size(72, 13);
+            bezeichnungLabel8.TabIndex = 29;
+            bezeichnungLabel8.Text = "Bezeichnung:";
+            // 
+            // bezeichnungTextBox8
+            // 
+            this.bezeichnungTextBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Bezeichnung", true));
+            this.bezeichnungTextBox8.Location = new System.Drawing.Point(125, 176);
+            this.bezeichnungTextBox8.Name = "bezeichnungTextBox8";
+            this.bezeichnungTextBox8.Size = new System.Drawing.Size(100, 20);
+            this.bezeichnungTextBox8.TabIndex = 30;
+            // 
+            // fK_OrtLabel1
+            // 
+            fK_OrtLabel1.AutoSize = true;
+            fK_OrtLabel1.Location = new System.Drawing.Point(17, 205);
+            fK_OrtLabel1.Name = "fK_OrtLabel1";
+            fK_OrtLabel1.Size = new System.Drawing.Size(40, 13);
+            fK_OrtLabel1.TabIndex = 31;
+            fK_OrtLabel1.Text = "FK Ort:";
+            // 
+            // fK_OrtTextBox1
+            // 
+            this.fK_OrtTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.FK_Ort", true));
+            this.fK_OrtTextBox1.Location = new System.Drawing.Point(125, 202);
+            this.fK_OrtTextBox1.Name = "fK_OrtTextBox1";
+            this.fK_OrtTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.fK_OrtTextBox1.TabIndex = 32;
+            // 
+            // gebaeude_NummerLabel1
+            // 
+            gebaeude_NummerLabel1.AutoSize = true;
+            gebaeude_NummerLabel1.Location = new System.Drawing.Point(17, 231);
+            gebaeude_NummerLabel1.Name = "gebaeude_NummerLabel1";
+            gebaeude_NummerLabel1.Size = new System.Drawing.Size(102, 13);
+            gebaeude_NummerLabel1.TabIndex = 33;
+            gebaeude_NummerLabel1.Text = "Gebaeude Nummer:";
+            // 
+            // gebaeude_NummerTextBox1
+            // 
+            this.gebaeude_NummerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Gebaeude_Nummer", true));
+            this.gebaeude_NummerTextBox1.Location = new System.Drawing.Point(125, 228);
+            this.gebaeude_NummerTextBox1.Name = "gebaeude_NummerTextBox1";
+            this.gebaeude_NummerTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.gebaeude_NummerTextBox1.TabIndex = 34;
+            // 
+            // krankheitLabel1
+            // 
+            krankheitLabel1.AutoSize = true;
+            krankheitLabel1.Location = new System.Drawing.Point(17, 257);
+            krankheitLabel1.Name = "krankheitLabel1";
+            krankheitLabel1.Size = new System.Drawing.Size(55, 13);
+            krankheitLabel1.TabIndex = 35;
+            krankheitLabel1.Text = "Krankheit:";
+            // 
+            // krankheitTextBox1
+            // 
+            this.krankheitTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.Krankheit", true));
+            this.krankheitTextBox1.Location = new System.Drawing.Point(125, 254);
+            this.krankheitTextBox1.Name = "krankheitTextBox1";
+            this.krankheitTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.krankheitTextBox1.TabIndex = 36;
+            // 
+            // pK_GebaeudeLabel1
+            // 
+            pK_GebaeudeLabel1.AutoSize = true;
+            pK_GebaeudeLabel1.Location = new System.Drawing.Point(17, 283);
+            pK_GebaeudeLabel1.Name = "pK_GebaeudeLabel1";
+            pK_GebaeudeLabel1.Size = new System.Drawing.Size(77, 13);
+            pK_GebaeudeLabel1.TabIndex = 37;
+            pK_GebaeudeLabel1.Text = "PK Gebaeude:";
+            // 
+            // pK_GebaeudeTextBox1
+            // 
+            this.pK_GebaeudeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.raumBindingSource, "gebaeude.PK_Gebaeude", true));
+            this.pK_GebaeudeTextBox1.Location = new System.Drawing.Point(125, 280);
+            this.pK_GebaeudeTextBox1.Name = "pK_GebaeudeTextBox1";
+            this.pK_GebaeudeTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.pK_GebaeudeTextBox1.TabIndex = 38;
             // 
             // Form1
             // 
@@ -1105,16 +1402,16 @@ namespace EF_leer
             ((System.ComponentModel.ISupportInitialize)(this.terminBindingNavigator)).EndInit();
             this.terminBindingNavigator.ResumeLayout(false);
             this.terminBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.raumBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1196,6 +1493,20 @@ namespace EF_leer
         private System.Windows.Forms.DateTimePicker termin_EndeDateTimePicker1;
         private System.Windows.Forms.DateTimePicker termin_StartDateTimePicker1;
         private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
+        private System.Windows.Forms.TextBox bezeichnungTextBox8;
+        private System.Windows.Forms.TextBox fK_OrtTextBox1;
+        private System.Windows.Forms.TextBox gebaeude_NummerTextBox1;
+        private System.Windows.Forms.TextBox krankheitTextBox1;
+        private System.Windows.Forms.TextBox pK_GebaeudeTextBox1;
+        private System.Windows.Forms.TextBox bezeichnungTextBox7;
+        private System.Windows.Forms.TextBox kürzelTextBox1;
+        private System.Windows.Forms.TextBox pK_AbteilungTextBox1;
+        private System.Windows.Forms.TextBox bezeichnungTextBox6;
+        private System.Windows.Forms.TextBox fK_AbteilungTextBox1;
+        private System.Windows.Forms.TextBox fK_GebäudeTextBox1;
+        private System.Windows.Forms.TextBox pK_RaumTextBox1;
+        private System.Windows.Forms.TextBox raumnummerTextBox1;
+        private System.Windows.Forms.Button button6;
     }
 }
 
