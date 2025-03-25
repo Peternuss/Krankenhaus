@@ -15,6 +15,7 @@ namespace EF_leer
         krankenhausEntities1 daten = new krankenhausEntities1();
         public Form1()
         {
+            //quentin leck meine eier
             InitializeComponent();
 
             terminBindingSource.DataSource = daten.termin.ToList();
